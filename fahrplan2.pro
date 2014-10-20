@@ -55,6 +55,7 @@ maemo5:QT += maemo5
 !maemo5:!blackberry: CONFIG += mobility
 maemo5: CONFIG += mobility11
 !blackberry: MOBILITY += location organizer
+blackberry: CONFIG += cascades
 
 TRANSLATIONS += \
     translations/fahrplan_ar.ts \
@@ -276,35 +277,17 @@ blackberry {
 
     HEADERS += src/blackberrypositionsource.h
     SOURCES += src/blackberrypositionsource.cpp
-    LIBS += -lQtLocationSubset -lbbpim
+
+    LIBS += -lbbsystem -lbbplatform -lQtLocationSubset -lbbpim
 
     OTHER_FILES += \
         bar-descriptor.xml \
-        src/gui/symbian/main.qml \
-        src/gui/symbian/components/SubTitleButton.qml \
-        src/gui/symbian/components/TwoLineLabel.qml \
-        src/gui/symbian/components/SwitchLabel.qml \
-        src/gui/symbian/components/SelectLabel.qml \
-        src/gui/symbian/components/BusyLabel.qml \
-        src/gui/symbian/delegates/StationDelegate.qml \
-        src/gui/symbian/delegates/JourneyDelegate.qml \
-        src/gui/symbian/delegates/JourneyDetailsDelegate.qml \
-        src/gui/symbian/delegates/TimetableEntryDelegate.qml \
-        src/gui/symbian/pages/AboutPage.qml \
-        src/gui/symbian/pages/JourneyDetailsResultsPage.qml \
-        src/gui/symbian/pages/JourneyResultsPage.qml \
-        src/gui/symbian/pages/MainPage.qml \
-        src/gui/symbian/pages/SettingsPage.qml \
-        src/gui/symbian/pages/StationSelectPage.qml \
-        src/gui/symbian/pages/StationsListPage.qml \
-        src/gui/symbian/pages/TimetablePage.qml \
-        src/gui/symbian/js/style.js \
-        src/gui/symbian/icon/*
+        src/gui/about.js \
+        src/gui/bb10/*.qml \
+        src/gui/bb10/components/*.qml \
+        src/gui/bb10/pages/*.qml
 
     DEFINES += BUILD_FOR_BLACKBERRY
-
-    # For Qt Creator completion to work correctly
-    QML_IMPORT_PATH = 3rdparty/bb10-qt-components/imports
 }
 
 exists("/usr/include/sailfishapp/sailfishapp.h"): {
@@ -346,14 +329,15 @@ exists("/usr/include/sailfishapp/sailfishapp.h"): {
         data/sailfishos/harbour-fahrplan2.png
 }
 
-win32|unix:!simulator:!maemo5:!contains(MEEGO_EDITION,harmattan):!symbian:!exists("/usr/include/sailfishapp/sailfishapp.h"):!ubuntu:!blackberry {
+win32|unix:!simulator:!maemo5:!contains(MEEGO_EDITION,harmattan):!symbian {
+!exists("/usr/include/sailfishapp/sailfishapp.h"):!ubuntu:!blackberry {
     QT += widgets
     DEFINES += BUILD_FOR_DESKTOP
     RESOURCES += desktop_res.qrc
     SOURCES += src/gui/desktop-test/mainwindow.cpp
     HEADERS += src/gui/desktop-test/mainwindow.h
     FORMS += src/gui/desktop-test/mainwindow.ui
-}
+}} # Yes, two closing braces
 
 symbian|simulator {
     RESOURCES += symbian_res.qrc
@@ -471,4 +455,3 @@ freebsd-* {
 translations.CONFIG = no_link
 QMAKE_EXTRA_COMPILERS += translations
 PRE_TARGETDEPS += compiler_translations_make_all
-
