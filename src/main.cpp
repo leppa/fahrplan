@@ -61,6 +61,7 @@ using namespace bb::cascades;
 #endif
 
 #if defined(BUILD_FOR_BLACKBERRY)
+    #include "bb10/languagechangelistener.h"
     #include "blackberrypositionsource.h"
     #include <bps/geolocation.h>
 #endif
@@ -105,14 +106,17 @@ int main(int argc, char *argv[])
         #endif
     #endif
 
+#ifdef Q_OS_BLACKBERRY
+    new LanguageChangeListener(app.data());
+#else
     QString localeName = QLocale().name();
-
     qDebug() <<"Using "<<localeName<<" locale";
 
     // Install translations
     QTranslator translator;
     translator.load(QString("fahrplan_%1").arg(localeName), ":/translations");
     app->installTranslator(&translator);
+#endif
 
     qDebug()<<"Startup";
 
