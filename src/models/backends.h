@@ -51,6 +51,10 @@ public slots:
     int getItemIndexForParserId(int parserId) const;
     int getParserIdForItemIndex(int index) const;
 
+#ifdef Q_OS_BLACKBERRY
+    QStringList getSortedBackendParserList() const;
+#endif
+
 private:
     QStringList m_list;
     QList<int> m_ordered;

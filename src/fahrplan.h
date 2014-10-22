@@ -42,6 +42,7 @@ class Fahrplan : public QObject
     Q_PROPERTY(FahrplanParserThread *parser READ parser NOTIFY parserChanged)
     Q_PROPERTY(QString parserName READ parserName NOTIFY parserChanged)
     Q_PROPERTY(QString parserShortName READ parserShortName NOTIFY parserChanged)
+    Q_PROPERTY(int parserIndex READ parserIndex NOTIFY parserChanged)
     Q_PROPERTY(QString version READ getVersion CONSTANT)
     Q_PROPERTY(bool supportsCalendar READ supportsCalendar CONSTANT)
 
@@ -106,6 +107,7 @@ class Fahrplan : public QObject
         Q_INVOKABLE bool timeFormat24h() const;
 
     public slots:
+        int parserIndex() const;
         void setParser(int index);
         void storeSettingsValue(const QString &key, const QString &value);
         QString getSettingsValue(const QString &key, const QString &defaultValue);

@@ -95,3 +95,14 @@ void Backends::setBackendParserList(const QStringList &list)
     endResetModel();
     emit countChanged();
 }
+
+#ifdef Q_OS_BLACKBERRY
+QStringList Backends::getSortedBackendParserList() const
+{
+    QStringList result;
+    foreach (int i, m_ordered) {
+        result << m_list.at(i);
+    }
+    return result;
+}
+#endif

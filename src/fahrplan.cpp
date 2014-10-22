@@ -378,6 +378,11 @@ QString Fahrplan::parserShortName() const
     return m_parser_manager->getParser()->shortName();
 }
 
+int Fahrplan::parserIndex() const
+{
+    return m_parser_manager->parser();
+}
+
 void Fahrplan::setParser(int index)
 {
     qDebug()<<"Set parser:"<<index;

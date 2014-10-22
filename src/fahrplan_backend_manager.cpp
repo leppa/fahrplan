@@ -56,6 +56,11 @@ FahrplanParserThread *FahrplanBackendManager::getParser()
     return m_parser;
 }
 
+int FahrplanBackendManager::parser() const
+{
+    return currentParserIndex;
+}
+
 void FahrplanBackendManager::setParser(int index)
 {
     if (currentParserIndex == index && m_parser) {
