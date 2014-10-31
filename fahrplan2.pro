@@ -110,7 +110,6 @@ HEADERS += \
     src/models/stationslistmodel.h \
     src/models/favorites.h \
     src/models/stationsearchresults.h \
-    src/models/timetable.h \
     src/models/trainrestrictions.h \
     src/parser/parser_ptvvicgovau.h \
     src/parser/parser_efa.h \
@@ -143,7 +142,6 @@ SOURCES += src/main.cpp \
     src/models/stationslistmodel.cpp \
     src/models/favorites.cpp \
     src/models/stationsearchresults.cpp \
-    src/models/timetable.cpp \
     src/models/trainrestrictions.cpp \
     src/parser/parser_ptvvicgovau.cpp \
     src/parser/parser_efa.cpp \
@@ -157,6 +155,14 @@ SOURCES += src/main.cpp \
     src/parser/parser_resrobot.cpp \
     src/parser/parser_finland_matka.cpp \
     src/models/backends.cpp
+
+!blackberry {
+    HEADERS += \
+        src/models/timetable.h
+
+    SOURCES += \
+        src/models/timetable.cpp
+}
 
 LIBS += $$PWD/3rdparty/gauss-kruger-cpp/gausskruger.cpp
 
@@ -278,13 +284,15 @@ blackberry {
     HEADERS += \
         src/bb10/languagechangelistener.h \
         src/bb10/repeater.h \
+        src/bb10/timetable.h \
         src/blackberrypositionsource.h
     SOURCES += \
         src/bb10/languagechangelistener.cpp \
         src/bb10/repeater.cpp \
+        src/bb10/timetable.cpp \
         src/blackberrypositionsource.cpp
 
-    LIBS += -lbbsystem -lbbplatform -lQtLocationSubset -lbbpim
+    LIBS += -lbbsystem -lQtLocationSubset -lbbpim
 
     OTHER_FILES += \
         bar-descriptor.xml \

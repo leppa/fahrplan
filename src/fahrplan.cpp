@@ -23,9 +23,14 @@
 #include "calendarthreadwrapper.h"
 #include "models/favorites.h"
 #include "models/stationsearchresults.h"
-#include "models/timetable.h"
 #include "models/trainrestrictions.h"
 #include "models/backends.h"
+
+#ifdef BUILD_FOR_BLACKBERRY
+    #include "bb10/timetable.h"
+#else
+    #include "models/timetable.h"
+#endif
 
 #include <QThread>
 

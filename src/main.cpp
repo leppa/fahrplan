@@ -40,8 +40,10 @@
 #   include <bb/cascades/Application>
 #   include <bb/cascades/QmlDocument>
 #   include <bb/cascades/AbstractPane>
+#   include <bb/cascades/Container>
+#   include <bb/cascades/SceneCover>
 #   include <bb/system/SystemToast>
-#   include <bb/platform/PlatformInfo>
+#   include <bps/geolocation.h>
 using namespace bb::cascades;
 #else
     #include "gui/desktop-test/mainwindow.h"
@@ -63,8 +65,10 @@ using namespace bb::cascades;
 #if defined(BUILD_FOR_BLACKBERRY)
     #include "bb10/languagechangelistener.h"
     #include "bb10/repeater.h"
+    #include "bb10/timetable.h"
     #include "blackberrypositionsource.h"
-    #include <bps/geolocation.h>
+#else
+    #include "models/timetable.h"
 #endif
 
 #include "fahrplan.h"
@@ -73,7 +77,6 @@ using namespace bb::cascades;
 #include "fahrplan_calendar_manager.h"
 #include "models/stationsearchresults.h"
 #include "models/favorites.h"
-#include "models/timetable.h"
 #include "models/trainrestrictions.h"
 #include "models/backends.h"
 

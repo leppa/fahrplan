@@ -188,6 +188,14 @@ void Repeater::createDelegates()
         dataModel = m_model.value<DataModel *>();
         if (!dataModel)
             return;
+    } else if (m_model.canConvert<QObject *>()) {
+        // Might still be a DataModel derivative. Try casting.
+        dataModel = qobject_cast<DataModel *>(m_model.value<QObject *>());
+        if (!dataModel)
+            return;
+    }
+
+    if (dataModel) {
         count = dataModel->childCount(QVariantList());
         isDataModel = true;
     }
@@ -199,7 +207,7 @@ void Repeater::createDelegates()
         if (m_model.type() == QVariant::List) {
             context->setContextProperty("modelData", list.at(i));
         } else if (isDataModel) {
-            const QVariantMap map = dataModel->data(QVariantList() << 1).toMap();
+            const QVariantMap map = dataModel->data(QVariantList() << i).toMap();
             foreach (const QString &key, map.keys()) {
                 context->setContextProperty(key, map.value(key));
             }
