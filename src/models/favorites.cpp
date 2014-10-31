@@ -30,7 +30,7 @@ Favorites::Favorites(Fahrplan *parent)
 
 QVariant Favorites::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid() || (index.row() < 0) || (index.row() >= m_list.count()))
+    if (!index.isValid() || (index.row() < 0) || (index.row() >= count()))
         return QVariant();
 
     if (role == IsFavorite)
@@ -42,20 +42,17 @@ QVariant Favorites::data(const QModelIndex &index, int role) const
 void Favorites::addToFavorites(const Station &station)
 {
     if (!isFavorite(station)) {
-        beginResetModel();
-        m_list.append(station);
-        qSort(m_list);
-        endResetModel();
-
-        emit countChanged();
-
+        StationsList list = stationsList();
+        list.append(station);
+        qSort(list);
+        setStationsList(list);
         saveToSettings();
     }
 }
 
 void Favorites::removeFromFavorites(const Station &station)
 {
-    int index = m_list.indexOf(station);
+    int index = indexOf(station);
     if (index < 0)
         return;
 
@@ -64,15 +61,10 @@ void Favorites::removeFromFavorites(const Station &station)
 
 void Favorites::removeFromFavorites(int index)
 {
-    if ((index < 0) || (index >= m_list.count()))
+    if ((index < 0) || (index >= count()))
         return;
 
-    beginRemoveRows(QModelIndex(), index, index);
-    m_list.removeAt(index);
-    endRemoveRows();
-
-    emit countChanged();
-
+    removeAt(index);
     saveToSettings();
 }
 
@@ -82,19 +74,18 @@ void Favorites::reload()
         m_settings->endGroup();
     m_settings->beginGroup(qobject_cast<Fahrplan *>(QObject::parent())->parser()->uid());
 
-    beginResetModel();
-    m_list.clear();
+    clear();
     loadFavorites();
-    endResetModel();
 }
 
 bool Favorites::isFavorite(const Station &station) const
 {
-    return m_list.contains(station);
+    return contains(station);
 }
 
 void Favorites::loadFavorites()
 {
+    StationsList list;
     int size = m_settings->beginReadArray("favorites");
     for (int k = 0; k < size; ++k) {
         m_settings->setArrayIndex(k);
@@ -106,10 +97,12 @@ void Favorites::loadFavorites()
         station.miscInfo = m_settings->value("miscInfo").toString();
         station.latitude = m_settings->value("latitude").toFloat();
         station.longitude = m_settings->value("longitude").toFloat();
-        m_list << station;
+        list << station;
     }
     m_settings->endArray();
-    qSort(m_list);
+    qSort(list);
+
+    setStationsList(list);
 }
 
 void Favorites::saveToSettings()
@@ -119,15 +112,15 @@ void Favorites::saveToSettings()
     m_settings->remove("favorites");
 
     m_settings->beginWriteArray("favorites");
-    int size = m_list.size();
+    int size = count();
     for (int k = 0; k < size; ++k) {
         m_settings->setArrayIndex(k);
-        m_settings->setValue("id", m_list.at(k).id);
-        m_settings->setValue("name", m_list.at(k).name);
-        m_settings->setValue("type", m_list.at(k).type);
-        m_settings->setValue("miscInfo", m_list.at(k).miscInfo);
-        m_settings->setValue("latitude", m_list.at(k).latitude);
-        m_settings->setValue("longitude", m_list.at(k).longitude);
+        m_settings->setValue("id", at(k).id);
+        m_settings->setValue("name", at(k).name);
+        m_settings->setValue("type", at(k).type);
+        m_settings->setValue("miscInfo", at(k).miscInfo);
+        m_settings->setValue("latitude", at(k).latitude);
+        m_settings->setValue("longitude", at(k).longitude);
     }
     m_settings->endArray();
 }
