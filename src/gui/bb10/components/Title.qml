@@ -42,16 +42,17 @@ TitleBar {
                     RadioGroup {
                         id: services
 
-                        selectedIndex: fahrplan.parserIndex
+                        selectedIndex: fahrplan.backends.getItemIndexForParserId(fahrplan.parserIndex);
 
                         onSelectedOptionChanged: {
                             tbp.expandableArea.expanded = false;
-                            fahrplan.setParser(selectedIndex);
+                            fahrplan.setParser(fahrplan.backends
+                                               .getParserIdForItemIndex(selectedIndex));
                         }
 
                         attachedObjects: [
                             Repeater {
-                                model: fahrplan.getParserList()
+                                model: fahrplan.backends.getSortedBackendParserList();
                                 delegate: Option {
                                     text: modelData
                                 }

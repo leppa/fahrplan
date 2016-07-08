@@ -21,7 +21,6 @@
 #define PARSER_DUBAI_EFA_H
 
 #include <QObject>
-#include <QXmlResultItems>
 #include "parser_efa.h"
 
 class ParserDubaiEFA : public ParserEFA
@@ -29,8 +28,9 @@ class ParserDubaiEFA : public ParserEFA
     Q_OBJECT
 public:
     explicit ParserDubaiEFA(QObject *parent = 0);
-    static QString getName() { return "Dubai"; }
-    QString name() { return "Dubai"; }
+    static QString getName() { return QString("%1 (rta.ae)").arg(tr("Dubai")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "rta.ae"; }
 
 protected:
     QStringList getTrainRestrictions();

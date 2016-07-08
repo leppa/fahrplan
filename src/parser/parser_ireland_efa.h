@@ -21,7 +21,6 @@
 #define PARSER_IRELAND_EFA_H
 
 #include <QObject>
-#include <QXmlResultItems>
 #include "parser_efa.h"
 
 class ParserIrelandEFA : public ParserEFA
@@ -29,8 +28,9 @@ class ParserIrelandEFA : public ParserEFA
     Q_OBJECT
 public:
     explicit ParserIrelandEFA(QObject *parent = 0);
-    static QString getName() { return "Ireland"; }
-    QString name() { return "Ireland"; }
+    static QString getName() { return QString("%1 (transportforireland.ie)").arg(tr("Ireland")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "transportforireland.ie"; }
 
 protected:
     QStringList getTrainRestrictions();

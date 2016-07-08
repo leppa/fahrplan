@@ -17,118 +17,88 @@
 **
 ****************************************************************************/
 
+import QtQuick 2.4
+import QtQuick.Layouts 1.1
+import Ubuntu.Components 1.3
 import Fahrplan 1.0
-import QtQuick 2.0
-import Ubuntu.Components 0.1
-import "components"
 
 Page {
-    title: qsTr("Result Details")
     id: searchDetailResultsPage
 
-    property alias titleText: journeyStations.text
-    property alias subTitleText: lbljourneyDate.text
-    property alias subTitleText2: lbljourneyDuration.text
+    title: qsTr("Journey advice")
+
+    property string titleText
+    property string subTitleText
+    property string subTitleText2
     property alias searchIndicatorVisible: searchIndicator.visible
 
     property JourneyDetailResultList currentResult;
 
-//    tools: journeyDetailResultsToolbar
-    Item {
-        id: searchResults
+    ActivityIndicator {
+        id: searchIndicator
+        anchors {
+            top: parent.top
+            topMargin: units.gu(5);
+            horizontalCenter: parent.horizontalCenter
+        }
+        running: true
+        visible: false
+    }
 
-        width:  parent.width
-        height: parent.height
+    ListView {
+        id: listView
 
-        Item {
+        header: Column {
             id: titleBar
 
-            height: journeyStations.height + journeyDate.height + units.gu(2)
-            width: parent.width
+            anchors { left: parent.left; right: parent.right; margins: units.gu(2) }
 
             Label {
                 id: journeyStations
-                text: ""
-                fontSize: "medium"
-                anchors {
-                    left: parent.left
-                    leftMargin: units.gu(1)
-                    right: parent.right
-                    rightMargin: units.gu(1)
-                    top: parent.top
-                    topMargin: units.gu(1)
-                }
+                text: titleText
+                fontSize: "large"
                 width: parent.width
+                wrapMode: Text.WordWrap
+                maximumLineCount: 2
                 elide: Text.ElideRight
             }
 
-            Item {
-                id: journeyDate
-                anchors {
-                    left: parent.left
-                    leftMargin: units.gu(1)
-                    right: parent.right
-                    rightMargin: units.gu(1)
-                    top: journeyStations.bottom
-                    topMargin: units.gu(1)
-                }
+            RowLayout {
+                spacing: units.gu(1)
                 width: parent.width
-                height: lbljourneyDate.height
 
                 Label {
                     id: lbljourneyDate
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                    }
-                    width: ((parent.width / 3) * 2) - units.gu(2)
+                    Layout.fillWidth: true
                     color: "Grey"
+                    text: subTitleText
+                    fontSize: "small"
                 }
 
                 Label {
                     id: lbljourneyDuration
-                    anchors {
-                        right: parent.right
-                        left: lbljourneyDate.right
-                        top: parent.top
-                    }
-                    width: (parent.width / 3) - units.gu(2)
                     color: "Grey"
                     horizontalAlignment: Text.AlignRight
+                    text: subTitleText2
+                    fontSize: "small"
                 }
             }
-        }
 
-        ActivityIndicator {
-            id: searchIndicator
-            anchors {
-                top: titleBar.bottom
-                topMargin: units.gu(5);
-                horizontalCenter: parent.horizontalCenter
+            Item {
+                width: parent.width
+                height: units.gu(2)
             }
-            running: true
-            visible: false
-
-//            platformStyle: BusyIndicatorStyle { size: "large" }
         }
 
-        ListView {
-            id: listView
-            anchors {
-                top: titleBar.bottom
-                topMargin: units.gu(1)
-            }
-            visible: !searchIndicator.visible
-            height: (parent.height - titleBar.height) - units.gu(2)
-            width: parent.width
-            model: journeyDetailResultModel
-            delegate:  journeyDetailResultDelegate
-            clip: true
-        }
+        anchors.fill: parent
+        anchors.topMargin: units.gu(1)
+        delegate:  journeyDetailResultDelegate
+        model: journeyDetailResultModel
+        visible: !searchIndicator.visible
+    }
 
-        Scrollbar {
-            flickableItem: listView
-        }
+    Scrollbar {
+        flickableItem: listView
     }
 
     Component {
@@ -140,10 +110,7 @@ Page {
             height: isStation ? isTrain ? item_train.height + item_station.height : item_station.height : isTrain ? item_train.height : 0
 
             Item {
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                }
-
+                anchors.verticalCenter: parent.verticalCenter
                 width: parent.width
                 height: parent.height
 
@@ -156,22 +123,21 @@ Page {
                      width: parent.width
 
                      Rectangle {
-                         anchors {
-                             fill: parent
-                         }
-                         color: "White"
+                         id: stationBackground
+                         anchors.fill: parent
+                         color: "#F5F5F5"
                      }
 
                      Rectangle {
                          anchors {
                              left: parent.left
-                             leftMargin: units.gu(8)
+                             leftMargin: units.gu(7.75)
                              top: parent.top
                              topMargin: (isStart) ? parent.height / 2 : 0
                          }
                          color: "#0d70c5"
                          height: (isStart || isStop) ? parent.height / 2  : parent.height
-                         width: units.gu(1)
+                         width: units.gu(0.5)
                      }
 
                      Rectangle {
@@ -211,9 +177,9 @@ Page {
                                  color: "#0d70c5";
                              }
                          }
-                         radius: units.gu(1.5)
-                         height: units.gu(3)
-                         width: units.gu(3)
+                         radius: units.gu(1)
+                         height: units.gu(2)
+                         width: units.gu(2)
                      }
 
                      Label {
@@ -228,7 +194,6 @@ Page {
                      }
 
                      Label {
-
                          anchors {
                              left: parent.left
                              leftMargin: units.gu(1)
@@ -254,18 +219,17 @@ Page {
                         Label {
                             id: lbl_station_name
                             text: stationName
-                            width: parent.width
+                            width: parent.width - units.gu(1)
+                            wrapMode: Text.WordWrap
                         }
 
                         Label {
-
-                            anchors {
-                                top: lbl_station_name.bottom
-                            }
-                            color: "DarkGrey"
                             id: lbl_station_info
+                            anchors.top: lbl_station_name.bottom
+                            color: "DarkGrey"
                             text: stationInfo
-                            width: parent.width
+                            width: parent.width - units.gu(1)
+                            wrapMode: Text.WordWrap
                         }
                      }
                 }
@@ -283,20 +247,19 @@ Page {
                     width: parent.width
 
                     Rectangle {
-                        anchors {
-                            fill: parent
-                        }
-                        color: "LightGrey"
+                        id: trainBackground
+                        anchors.fill: parent
+                        color: "#ECECEC"
                     }
 
                     Rectangle {
                         anchors {
                             left: parent.left
-                            leftMargin: units.gu(8)
+                            leftMargin: units.gu(7.75)
                         }
                         color: "#0d70c5"
                         height: parent.height
-                        width: units.gu(1)
+                        width: units.gu(0.5)
                     }
 
                     Label {
@@ -309,17 +272,21 @@ Page {
                         text: {
                             var result;
                             if (model.trainDirection.length > 0) {
-                                result = qsTr("%1 to %2").arg("<b>" + model.trainName + "</b>")
-                                                         .arg(model.trainDirection);
+                                //: As in "%1 in direction %2"
+                                result = qsTr("%1 to %2", "Direction")
+                                         .arg("<b>" + model.trainName + "</b>")
+                                         .arg(model.trainDirection);
                             } else {
                                 result = "<b>" + model.trainName + "</b>";
                             }
                             if (model.trainInfo)
-                                result += "<br /><i>" + model.trainInfo + "</i>";
+                                result += "<br /><i><font color=\"red\">" + model.trainInfo + "</font></i>";
 
                             return result;
                         }
-                        width: (parent.width  - units.gu(11))
+                        width: (parent.width  - units.gu(12))
+                        wrapMode: Text.WordWrap
+                        onLinkActivated : Qt.openUrlExternally(link)
                     }
                 }
             }
@@ -350,7 +317,7 @@ Page {
             console.log(result.count);
 
             if (result.count > 0) {
-                journeyStations.text = result.viaStation.length == 0 ? qsTr("<b>%1</b> to <b>%2</b>").arg(result.departureStation).arg(result.arrivalStation) : qsTr("<b>%1</b> via <b>%3</b> to <b>%2</b>").arg(result.departureStation).arg(result.arrivalStation).arg(result.viaStation);
+                titleText = result.viaStation.length == 0 ? qsTr("<b>%1</b> ↦ <b>%2</b>").arg(result.departureStation).arg(result.arrivalStation) : qsTr("<b>%1</b> ↦ <b>%3</b> ↦ <b>%2</b>").arg(result.departureStation).arg(result.arrivalStation).arg(result.viaStation);
                 var departureDate = Qt.formatDate(result.departureDateTime);
                 var arrivalDate = Qt.formatDate(result.arrivalDateTime);
 
@@ -358,10 +325,10 @@ Page {
                     arrivalDate = "";
                 }
 
-                lbljourneyDate.text = departureDate + " " + Qt.formatTime(result.departureDateTime, Qt.DefaultLocaleShortDate) + " - " +
+                subTitleText = departureDate + " " + Qt.formatTime(result.departureDateTime, Qt.DefaultLocaleShortDate) + " - " +
                         arrivalDate + " " + Qt.formatTime(result.arrivalDateTime, Qt.DefaultLocaleShortDate);
 
-                lbljourneyDuration.text = qsTr("Dur.: %1").arg(result.duration);
+                subTitleText2 = qsTr("Dur.: %1").arg(result.duration);
 
                 journeyDetailResultModel.clear();
                 for (var i = 0; i < result.count; i++) {
@@ -372,6 +339,17 @@ Page {
                         nextItem = result.getItem(i+1);
                     }
 
+                    /*
+                    console.log("-------------" + i);
+                    console.log(item.departureStation);
+                    console.log(item.train);
+                    console.log(item.arrivalStation);
+                    if (nextItem) {
+                        console.log(nextItem.departureStation);
+                        console.log(nextItem.train);
+                        console.log(nextItem.arrivalStation);
+                    }
+                    */
 
                     var isStart = (i == 0);
                     var isStop = (i == result.count -1);
@@ -387,16 +365,15 @@ Page {
                                                             "stationName" : item.departureStation,
                                                             "stationInfo" : item.departureInfo,
                                                             "arrivalTime" : "",
-                                                            "departureTime" : Qt.formatTime(item.departureDateTime, Qt.DefaultLocaleShortDate),
+                                                            "departureTime" : Qt.formatTime(item.departureDateTime, "hh:mm"),
                                                             "isStation" : true,
                                                             "isTrain" : true
 
                         });
                     }
 
-                    //Add arrival station, but only if its the last item or if the next departureStation differs
-                    //from arrival station
-                    if (isStop || (nextItem && nextItem.departureStation != item.arrivalStation)) {
+                    //Add arrival station
+                    if (isStop) {
                         journeyDetailResultModel.append({
                                                             "isStart" : false,
                                                             "isStop" : isStop,
@@ -405,7 +382,7 @@ Page {
                                                             "trainInfo" : "",
                                                             "stationName" : item.arrivalStation,
                                                             "stationInfo" :  item.arrivalInfo,
-                                                            "arrivalTime" :  Qt.formatTime(item.arrivalDateTime, Qt.DefaultLocaleShortDate),
+                                                            "arrivalTime" :  Qt.formatTime(item.arrivalDateTime, "hh:mm"),
                                                             "departureTime" : "",
                                                             "isStation" : true,
                                                             "isTrain" : false
@@ -414,12 +391,15 @@ Page {
                     }
 
                     //Add one Station
-                    if ((nextItem && nextItem.departureStation == item.arrivalStation)) {
-
+                    if (nextItem) {
                         var stationInfo = item.arrivalInfo;
+                        var stationName = item.arrivalStation;
 
                         if (stationInfo.length > 0 && nextItem.departureInfo) {
                             stationInfo = stationInfo + " / ";
+                        }
+                        if (nextItem.departureStation != item.arrivalStation) {
+                            stationName += " / " + nextItem.departureStation;
                         }
 
                         stationInfo = stationInfo + nextItem.departureInfo;
@@ -430,10 +410,10 @@ Page {
                                                             "trainName" :  nextItem.train,
                                                             "trainDirection" : nextItem.direction,
                                                             "trainInfo" : nextItem.info,
-                                                            "stationName" : item.arrivalStation,
+                                                            "stationName" : stationName,
                                                             "stationInfo" : stationInfo,
-                                                            "arrivalTime" : Qt.formatTime(item.arrivalDateTime, Qt.DefaultLocaleShortDate),
-                                                            "departureTime" :  Qt.formatTime(nextItem.departureDateTime, Qt.DefaultLocaleShortDate),
+                                                            "arrivalTime" : Qt.formatTime(item.arrivalDateTime, "hh:mm"),
+                                                            "departureTime" :  Qt.formatTime(nextItem.departureDateTime, "hh:mm"),
                                                             "isStation" : true,
                                                             "isTrain" : true
 
@@ -443,7 +423,7 @@ Page {
                 }
                 searchIndicator.visible = false;
             } else {
-                pageStack.pop();
+                mainStack.pop();
             }
         }
     }
@@ -452,18 +432,10 @@ Page {
 //        id: journeyDetailResultsToolbar
 
 //        ToolIcon {
-//            id : backIcon;
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                pageStack.pop();
-//            }
-//        }
-
-//        ToolIcon {
 //            id : calendarIcon
 //            iconSource: enabled ? "qrc:/src/gui/harmattan/icon/icon-m-content-calendar" + inverseSuffix + ".svg" : "image://theme/progress_78_01"
 
-//            visible: !searchIndicator.visible
+//            visible: (!searchIndicator.visible) && (fahrplanBackend.supportsCalendar())
 
 //            onClicked: {
 //                calendarIcon.enabled = false

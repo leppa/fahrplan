@@ -22,7 +22,6 @@
 
 #include <QObject>
 #include <QDataStream>
-#include <zlib.h>
 #include "parser_hafasxml.h"
 
 class ParserHafasBinary : public ParserHafasXml
@@ -30,8 +29,11 @@ class ParserHafasBinary : public ParserHafasXml
     Q_OBJECT
 public:
     explicit ParserHafasBinary(QObject *parent = 0);
+
     static QString getName() { return "HafasBinary"; }
-    QString name() { return "HafasBinary"; }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return getName(); }
+
     void searchJourney(const Station &departureStation, const Station &viaStation, const Station &arrivalStation, const QDateTime &dateTime, Mode mode, int trainrestrictions);
     void searchJourneyEarlier();
     void searchJourneyLater();
@@ -41,12 +43,15 @@ protected:
     void parseSearchJourney(QNetworkReply *networkReply);
     void parseSearchLaterJourney(QNetworkReply *networkReply);
     void parseSearchEarlierJourney(QNetworkReply *networkReply);
-    QByteArray gzipDecompress(QByteArray compressData);
     QDate toDate(quint16 date);
     QDateTime toTime(quint16 time, QDate baseDate);
     QDateTime toTime(quint16 time);
     QString formatDuration(QDateTime durationTime);
     QString errorString(int error) const;
+
+private:
+    mutable QHash<int, QString> stringCache;
+    QString getString(const QByteArray &data, int index, QTextCodec *dataCodec) const;
 };
 
 #endif // PARSER_HAFASBINARY_H

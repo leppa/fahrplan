@@ -1,120 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   version="1.1"
-   width="80"
-   height="80"
-   id="svg2985">
-  <metadata
-     id="metadata3050">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:title></dc:title>
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs2987">
-    <linearGradient
-       x1="39.9995"
-       y1="5.1816001"
-       x2="39.9995"
-       y2="58.801899"
-       id="hicg_overlay_grad"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         id="stop2990"
-         style="stop-color:#009eff;stop-opacity:1"
-         offset="0" />
-      <stop
-         id="stop2992"
-         style="stop-color:#000000;stop-opacity:1"
-         offset="1" />
-    </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       id="hicg_drop_shadow">
-      <feOffset
-         in="SourceGraphic"
-         dx="0"
-         dy="2"
-         id="feOffset2995" />
-      <feGaussianBlur
-         stdDeviation="5"
-         id="feGaussianBlur2997" />
-      <feColorMatrix
-         type="matrix"
-         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.5 0"
-         result="shadow"
-         id="feColorMatrix2999" />
-      <feBlend
-         in2="shadow"
-         mode="normal"
-         in="SourceGraphic"
-         id="feBlend3001" />
-    </filter>
-    <linearGradient
-       x1="39.9995"
-       y1="5.1816001"
-       x2="39.9995"
-       y2="58.801899"
-       id="linearGradient3828"
-       xlink:href="#hicg_overlay_grad"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       x1="36.83849"
-       y1="-0.96219903"
-       x2="38.487972"
-       y2="80.687286"
-       id="linearGradient3965"
-       xlink:href="#hicg_overlay_grad"
-       gradientUnits="userSpaceOnUse" />
-  </defs>
-  <path
-     d="M 79,40 C 79,68.893 68.895,79 40,79 11.105,79 1,68.893 1,40 1,11.106 11.105,1 40,1 68.895,1 79,11.106 79,40 z"
-     id="hicg_background"
-     style="fill:#236eaf;fill-opacity:1" />
-  <path
-     d="M 39.999,1 C 11.105,1 1,11.106 1,40 1,68.893 11.105,79 39.999,79 68.896,79 79,68.893 79,40 79,11.106 68.896,1 39.999,1 z m 0,77.025 C 11.57,78.025 1.976,68.43 1.976,40 c 0,-28.429 9.595,-38.024 38.023,-38.024 28.43,0 38.024,9.596 38.024,38.024 0,28.43 -9.594,38.025 -38.024,38.025 z"
-     id="hicg_highlight"
-     style="opacity:0.25;fill:#fde9e9;fill-opacity:1" />
-  <path
-     d="M 78.977,40 C 78.977,68.893 68.877,79 40,79 11.123,79 1.023,68.893 1.023,40 1.023,11.106 11.123,1 40,1 68.877,1 78.977,11.106 78.977,40 z"
-     id="hicg_overlay"
-     style="opacity:0.4;fill:url(#linearGradient3828)" />
-  <rect
-     width="80"
-     height="80"
-     rx="5"
-     ry="5"
-     x="0"
-     y="0"
-     id="rect3189"
-     style="fill:url(#linearGradient3965);fill-opacity:1;stroke:none" />
-  <path
-     d="m 29.609689,17.266108 c -2.844347,0 -5.122835,2.014645 -5.122835,4.529621 l 0,27.063055 c 0,2.514978 2.278488,4.548735 5.122835,4.548735 l 20.534562,0 c 2.844346,0 5.14445,-2.033757 5.14445,-4.548735 l 0,-27.063055 c 0,-2.514976 -2.300104,-4.529621 -5.14445,-4.529621 l -20.534562,0 z m 5.706446,1.681885 9.316208,0 c 1.264153,0 2.291224,0.543697 2.291224,1.242301 l 0,2.025907 c 0,0.698603 -1.027071,1.261414 -2.291224,1.261414 l -9.316208,0 c -1.264154,0 -2.291225,-0.562811 -2.291225,-1.261414 l 0,-2.025907 c 0,-0.698604 1.027071,-1.242301 2.291225,-1.242301 z m -6.052292,6.383518 20.64264,0 c 1.182886,0 2.139918,0.562809 2.139918,1.261413 l 0,8.734333 c 0,0.698605 -0.957032,1.261414 -2.139918,1.261414 l -20.64264,0 c -1.182886,0 -2.139918,-0.562809 -2.139918,-1.261414 l 0,-8.734333 c 0,-0.698604 0.957032,-1.261413 2.139918,-1.261413 z m -0.583614,19.035877 1.642766,0 c 0.967816,0 1.750842,0.518996 1.750842,1.165852 l 0,1.873009 c 0,0.646855 -0.783026,1.16585 -1.750842,1.16585 l -1.642766,0 c -0.967816,0 -1.750842,-0.518995 -1.750842,-1.16585 l 0,-1.873009 c 0,-0.646856 0.783026,-1.165852 1.750842,-1.165852 z m 20.167103,0 1.642765,0 c 0.967816,0 1.729226,0.518996 1.729226,1.165852 l 0,1.873009 c 0,0.646855 -0.76141,1.16585 -1.729226,1.16585 l -1.642765,0 c -0.967817,0 -1.750841,-0.518995 -1.750841,-1.16585 l 0,-1.873009 c 0,-0.646856 0.783024,-1.165852 1.750841,-1.165852 z"
-     id="rect163652"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
-  <text
-     x="17.977051"
-     y="88.165382"
-     transform="scale(1.4253896,0.70156256)"
-     id="text163672"
-     xml:space="preserve"
-     style="font-size:30.1831665px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"><tspan
-       x="17.977051"
-       y="88.165382"
-       id="tspan163674"
-       style="font-weight:normal;fill:#ffffff;-inkscape-font-specification:Sans">A</tspan></text>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 13.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 14948)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Fahrplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="800px" height="800px" viewBox="0 0 800 800" enable-background="new 0 0 800 800" xml:space="preserve">
+<g id="Background">
+	<g id="Gradient">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="800" x2="400.0005" y2="4.882813e-004">
+			<stop  offset="0" style="stop-color:#1D3A6E"/>
+			<stop  offset="0.2169" style="stop-color:#1F3D71"/>
+			<stop  offset="0.3819" style="stop-color:#23477A"/>
+			<stop  offset="0.5292" style="stop-color:#2B578A"/>
+			<stop  offset="0.625" style="stop-color:#336699"/>
+			<stop  offset="1" style="stop-color:#4D99CC"/>
+		</linearGradient>
+		<path fill="url(#SVGID_1_)" d="M800,750c0,27.5-22.5,50-50,50H50c-27.5,0-50-22.5-50-50V50C0,22.5,22.5,0,50,0h700
+			c27.5,0,50,22.5,50,50V750z"/>
+	</g>
+</g>
+<g id="Glyph">
+	<path id="Train" fill="#FFFFFF" d="M286.543,153.936c-31.397,0-56.543,22.236-56.543,50v298.711
+		c0,27.744,25.146,50.205,56.543,50.205h226.66c31.387,0,56.797-22.461,56.797-50.205V203.936c0-27.764-25.41-50-56.797-50H286.543z
+		 M349.526,172.495h102.837c13.945,0,25.283,6.016,25.283,13.721v22.368c0,7.705-11.338,13.911-25.283,13.911H349.526
+		c-13.951,0-25.288-6.206-25.288-13.911v-22.378C324.238,178.511,335.576,172.495,349.526,172.495z M282.724,242.964h227.852
+		c13.057,0,23.633,6.211,23.633,13.921v96.396c0,7.71-10.576,13.931-23.633,13.931H282.724c-13.047,0-23.613-6.221-23.613-13.931
+		v-96.396C259.111,249.175,269.677,242.964,282.724,242.964z M276.284,453.057h18.14c10.683,0,19.316,5.742,19.316,12.871v20.674
+		c0,7.139-8.647,12.872-19.316,12.872h-18.14c-10.684,0-19.331-5.733-19.331-12.872v-20.674
+		C256.953,458.799,265.601,453.057,276.284,453.057z M498.877,453.057h18.154c10.684,0,19.082,5.742,19.082,12.871v20.674
+		c0,7.139-8.398,12.872-19.082,12.872h-18.154c-10.693,0-19.307-5.733-19.307-12.872v-20.674
+		C479.57,458.799,488.184,453.057,498.877,453.057z"/>
+	<path id="Rail" fill="#FFFFFF" d="M559.736,646.064h-50.762l-39.434-50.879H327.192l-37.563,50.879H242.09l130.547-167.285h48.457
+		L559.736,646.064z M456.338,577.607L396.519,500l-57.031,77.607H456.338z"/>
+</g>
 </svg>

@@ -21,8 +21,7 @@
 #define PARSER_HAFASXML_H
 
 #include <QObject>
-#include <QtXmlPatterns/QXmlQuery>
-#include <QXmlResultItems>
+#include <QDomElement>
 #include "parser_abstract.h"
 
 struct ParserHafasXmlJourneyDetailRequestData
@@ -59,7 +58,8 @@ class ParserHafasXml : public ParserAbstract
 public:
     explicit ParserHafasXml(QObject *parent = 0);
     static QString getName() { return "HafasXML"; }
-    QString name() { return "HafasXML"; }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return getName(); }
 
 public slots:
     void getTimeTableForStation(const Station &currentStation, const Station &directionStation, const QDateTime &dateTime, ParserAbstract::Mode mode, int trainrestrictions);
@@ -97,6 +97,7 @@ protected:
     StationsList internalParseStationsByName(const QString &data) const;
 
 private:
+    inline bool parseXml(QDomDocument &doc, const QByteArray &xml);
     QString parseExternalIds(const QVariant &id) const;
 
     QString cleanHafasDate(const QString &time);
@@ -104,7 +105,7 @@ private:
     QByteArray getStationsExternalIds(const QString &departureStation, const QString &arrivalStation, const QString &viaStation);
     void parseTimeTableMode1(QNetworkReply *networkReply);
     void parseTimeTableMode0(QNetworkReply *networkReply);
-    JourneyDetailResultList* internalParseJourneyDetails(QByteArray data);
+    JourneyDetailResultList* internalParseJourneyDetails(const QDomElement &connection);
 };
 
 #endif // PARSER_HAFASXML_H

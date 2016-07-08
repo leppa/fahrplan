@@ -80,6 +80,10 @@ QString FahrplanParserThread::name() {
     return m_name;
 }
 
+QString FahrplanParserThread::shortName() {
+    return m_short_name;
+}
+
 QString FahrplanParserThread::uid() const
 {
     return m_uid;
@@ -140,20 +144,30 @@ void FahrplanParserThread::run()
             m_parser = new ParserSFBayEFA();
             break;
         case 9:
-            m_parser = new ParserLondonEFA();
-            break;
-        case 10:
             m_parser = new ParserIrelandEFA();
             break;
-        case 11:
+        case 10:
             m_parser = new ParserDubaiEFA();
             break;
-        case 12:
+        case 11:
             m_parser = new ParserNinetwo();
+            break;
+        case 12:
+            m_parser = new ParserMunichEFA();
+            break;
+        case 13:
+            m_parser = new ParserSalzburgEFA();
+            break;
+        case 14:
+            m_parser = new ParserResRobot();
+            break;
+        case 15:
+            m_parser = new ParserFinlandMatka();
             break;
     }
 
     m_name = m_parser->name();
+    m_short_name = m_parser->shortName();
     m_uid = m_parser->uid();
     m_trainrestrictions = m_parser->getTrainRestrictions();
     m_supports_gps = m_parser->supportsGps();

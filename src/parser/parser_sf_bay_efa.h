@@ -21,7 +21,6 @@
 #define PARSER_SF_BAY_EFA_H
 
 #include <QObject>
-#include <QXmlResultItems>
 #include "parser_efa.h"
 
 class ParserSFBayEFA : public ParserEFA
@@ -29,8 +28,9 @@ class ParserSFBayEFA : public ParserEFA
     Q_OBJECT
 public:
     explicit ParserSFBayEFA(QObject *parent = 0);
-    static QString getName() { return "SF Bay"; }
-    QString name() { return "SF Bay"; }
+    static QString getName() { return QString("%1, %2 (511.org)").arg(tr("USA"), tr("SF Bay")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "511.org"; }
 
 protected:
     QStringList getTrainRestrictions();

@@ -22,8 +22,6 @@
 
 #include <QObject>
 #include <QtNetwork>
-#include <QtXmlPatterns/QXmlQuery>
-#include <QXmlResultItems>
 #include "parser_hafasbinary.h"
 
 /*
@@ -34,8 +32,9 @@ class ParserMobileBahnDe : public ParserHafasBinary
     Q_OBJECT
 public:
     explicit ParserMobileBahnDe(QObject *parent = 0);
-    static QString getName() { return "bahn.de"; }
-    QString name() { return "bahn.de"; }
+    static QString getName() { return QString("%1 (bahn.de)").arg(tr("Germany")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "bahn.de"; }
 
 public slots:
     QStringList getTrainRestrictions();

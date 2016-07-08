@@ -40,7 +40,8 @@ public:
     ~ParserAbstract();
 
     static QString getName() { return "Abstract"; }
-    virtual QString name() { return "Abstract"; }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return getName(); }
     virtual QString uid() { return metaObject()->className(); }
 
 public slots:
@@ -76,6 +77,7 @@ protected:
     FahrplanNS::curReqStates currentRequestState;
     QNetworkReply *lastRequest;
     QTimer *requestTimeout;
+    QByteArray acceptEncoding;
 
     virtual void parseTimeTable(QNetworkReply *networkReply);
     virtual void parseStationsByName(QNetworkReply *networkReply);
@@ -84,8 +86,10 @@ protected:
     virtual void parseSearchLaterJourney(QNetworkReply *networkReply);
     virtual void parseSearchEarlierJourney(QNetworkReply *networkReply);
     virtual void parseJourneyDetails(QNetworkReply *networkReply);
-    void sendHttpRequest(QUrl url, QByteArray data);
+    void sendHttpRequest(QUrl url, QByteArray data, const QList<QPair<QByteArray,QByteArray> > &additionalHeaders = QList<QPair<QByteArray,QByteArray> >());
     void sendHttpRequest(QUrl url);
+    QVariantMap parseJson(const QByteArray &data) const;
+    QByteArray gzipDecompress(QByteArray compressData);
 };
 
 #endif // PARSER_ABSTRACT_H

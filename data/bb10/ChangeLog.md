@@ -1,6 +1,109 @@
 BlackBerry World ChangeLog
 ==========================
 
+2.0.27
+------
+
+- Save trainrestrictions to settings
+- Backends are now sorted
+- Updated Vasttrafik's backend to version 2
+- Updated and Fixed ResRobot backend
+- Added Matka.fi backend
+
+2.0.26
+------
+
+- Improvements to EFA (Dubai, Ireland, Munich, Victoria, Salzburg, SF
+  Bay, and Sydney) service.
+- Improvements to Hafas Binary (bahn.de, and OBB) service.
+- 9292ov.nl: Display train number in journey details and timetable,
+  attributes in journey details, distance to a station when searching by
+  coordinates, and walking duration.
+- New: Greek translation.
+
+
+2.0.25
+------
+
+- Display parser short name on main page.
+- Icon refresh: now it's square, like most BlackBerry 10 icons.
+- New: Slovenian translation.
+- Fix: Rendering of details page could get borken (occured with MVV, but
+  possible with all backends).
+- Fix: Text not fully visible on 720x720 resolution devices. Also, all
+  context menu items should be displayed now without need to scroll.
+
+
+2.0.24
+------
+
+New services:
+
+- MVV (Germany, Munich) - supports via station and GPS location.
+- SVV (Austria, Salzburg) - supports via station and GPS location.
+- ResRobot (Sweden) - supports GPS location.
+
+New features and improvements:
+
+- Service names now follow the same pattern.
+- Defunct London service was removed.
+- New: Swedish translation.
+
+
+2.0.23
+------
+- Fix: "Earlier" / "Later" was broken in bahn.de service
+
+
+2.0.22
+------
+- Fix: bahn.de service works again
+- New: Improved About screen
+
+
+2.0.21
+------
+
+- New: Display of announcements for most services.
+- New: Display of canceled trains / stops in journey details for bahn.de
+  and öbb.at services.
+- New: Display of parallel / alternative trains for bahn.de and öbb.at
+  services.
+- New: Display of routing type (i.e., transfer, walk, bike, car; if
+  provided) for bahn.de and öbb.at services.
+- New: Display of realtime train information in timetable for sbb.ch
+  service.
+- New: Polish translation.
+- Fix: Empty entries in journey search results when using "Earlier" /
+  "Later" button.
+- Fix: Some stops were displayed with wrong encoding in öbb.at service.
+- Fix: "Walk for %2 min" message
+- Proper splash screens for BlackBerry devices with 1280x720 and
+  1440x1440.
+
+
+2.0.20
+------
+
+- New: Train direction is displayed in journey details for most
+  services.
+- New: If available, additional information about the train is displayed
+  in journey details for most services.
+- New: Duration of walk is shown for bahn.de.
+- New: Information about train cancellation is displayed for bahn.de and
+  öbb.at services.
+- Performance improvements for sbb.ch, reiseinfo.no, rejseplanen.dk and
+  9292ov.nl services.
+- öbb.at now uses new protocol which brings performance improvements and
+  uses less traffic.
+- Additional info about journey is no longer added to calendar entry if
+  compact format is selected in settings.
+- New translations: Romanian, Persian and Dutch.
+- Existing translations were updated.
+- You can now easily translate Fahrplan into your own language: see link
+  in the About page.
+
+
 2.0.19
 ------
 

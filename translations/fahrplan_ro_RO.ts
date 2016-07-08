@@ -1,41 +1,127 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro_RO" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ro_RO">
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="63"/>
-        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="44"/>
-        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="61"/>
-        <location filename="../src/gui/ubuntu/AboutPage.qml" line="66"/>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="53"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="43"/>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="50"/>
         <source>About Fahrplan</source>
         <translation>Despre Fahrplan</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="70"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="66"/>
+        <source>Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="95"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="89"/>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="99"/>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="168"/>
+        <source>Maintainers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="113"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="107"/>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="119"/>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="181"/>
+        <source>Code Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="130"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="124"/>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="138"/>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="193"/>
+        <source>Translators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="153"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="147"/>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="162"/>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="33"/>
+        <source>Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/harmattan/pages/AboutPage.qml" line="171"/>
+        <location filename="../src/gui/sailfishos/pages/AboutPage.qml" line="165"/>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="182"/>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/symbian/pages/AboutPage.qml" line="73"/>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="99"/>
+        <source>Version %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="30"/>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="33"/>
+        <source>About</source>
+        <translation type="unfinished">Despre</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="33"/>
+        <source>Credits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="39"/>
+        <source>Copyright</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="122"/>
+        <source>Released under the terms of the GNU GPL v2 or higher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="131"/>
+        <source>Source code available on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/AboutPage.qml" line="136"/>
+        <source>See full copyright</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CalendarThreadWrapper</name>
     <message>
-        <location filename="../src/calendarthreadwrapper.cpp" line="43"/>
+        <location filename="../src/calendarthreadwrapper.cpp" line="49"/>
         <source>%1 / %2</source>
         <comment>STATION / PLATFORM</comment>
+        <extracomment>STATION / PLATFORM</extracomment>
         <translation>%1 / %2</translation>
     </message>
     <message>
-        <location filename="../src/calendarthreadwrapper.cpp" line="45"/>
+        <location filename="../src/calendarthreadwrapper.cpp" line="53"/>
         <source>%1 %2   %3</source>
         <comment>DATE TIME   STATION</comment>
-        <translation>%1 %2 %3</translation>
+        <extracomment>DATE TIME STATION</extracomment>
+        <translation>%1 %2   %3</translation>
     </message>
     <message>
-        <location filename="../src/calendarthreadwrapper.cpp" line="71"/>
+        <location filename="../src/calendarthreadwrapper.cpp" line="80"/>
+        <location filename="../src/calendarthreadwrapper.cpp" line="96"/>
         <source>%1 to %2</source>
         <translation>%1 la %2</translation>
     </message>
     <message>
-        <location filename="../src/calendarthreadwrapper.cpp" line="74"/>
+        <location filename="../src/calendarthreadwrapper.cpp" line="83"/>
         <source>%1 via %3 to %2</source>
         <translation>%1 via %3 la %2</translation>
     </message>
     <message>
-        <location filename="../src/calendarthreadwrapper.cpp" line="111"/>
+        <location filename="../src/calendarthreadwrapper.cpp" line="123"/>
         <source>-- 
 Added by Fahrplan. Please, re-check the information before your journey.</source>
         <translation>
@@ -76,11 +162,11 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>Fahrplan</name>
     <message>
-        <location filename="../src/fahrplan.cpp" line="133"/>
-        <location filename="../src/fahrplan.cpp" line="141"/>
-        <location filename="../src/fahrplan.cpp" line="149"/>
-        <location filename="../src/fahrplan.cpp" line="157"/>
-        <location filename="../src/fahrplan.cpp" line="165"/>
+        <location filename="../src/fahrplan.cpp" line="142"/>
+        <location filename="../src/fahrplan.cpp" line="150"/>
+        <location filename="../src/fahrplan.cpp" line="158"/>
+        <location filename="../src/fahrplan.cpp" line="166"/>
+        <location filename="../src/fahrplan.cpp" line="174"/>
         <source>please select</source>
         <translation>vă rugăm selectați</translation>
     </message>
@@ -109,15 +195,37 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <translation>Calendar local</translation>
     </message>
     <message>
-        <location filename="../src/fahrplan_calendar_manager.cpp" line="184"/>
+        <location filename="../src/fahrplan_calendar_manager.cpp" line="186"/>
         <source>%1 (%2)</source>
         <comment>Calendar name (Account name)</comment>
+        <extracomment>Calendar name (Account name)</extracomment>
         <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/fahrplan_calendar_manager.cpp" line="245"/>
+        <location filename="../src/fahrplan_calendar_manager.cpp" line="247"/>
         <source>Personal</source>
         <translation>Personal</translation>
+    </message>
+</context>
+<context>
+    <name>JourneyDetailsDelegate</name>
+    <message>
+        <location filename="../src/gui/harmattan/delegates/JourneyDetailsDelegate.qml" line="186"/>
+        <location filename="../src/gui/symbian/delegates/JourneyDetailsDelegate.qml" line="213"/>
+        <source>%1 to %2</source>
+        <comment>Direction</comment>
+        <extracomment>As in &quot;%1 in direction %2&quot;</extracomment>
+        <translation type="unfinished">%1 la %2</translation>
+    </message>
+</context>
+<context>
+    <name>JourneyDetailsTrainDelegate</name>
+    <message>
+        <location filename="../src/gui/sailfishos/delegates/JourneyDetailsTrainDelegate.qml" line="60"/>
+        <source>%1 to %2</source>
+        <comment>Direction</comment>
+        <extracomment>As in &quot;%1 in direction %2&quot;</extracomment>
+        <translation type="unfinished">%1 la %2</translation>
     </message>
 </context>
 <context>
@@ -138,7 +246,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyDetailsResultsPage.qml" line="159"/>
         <location filename="../src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml" line="162"/>
         <location filename="../src/gui/symbian/pages/JourneyDetailsResultsPage.qml" line="162"/>
-        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="341"/>
+        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="356"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; la &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -146,7 +254,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyDetailsResultsPage.qml" line="159"/>
         <location filename="../src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml" line="162"/>
         <location filename="../src/gui/symbian/pages/JourneyDetailsResultsPage.qml" line="162"/>
-        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="341"/>
+        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="356"/>
         <source>&lt;b&gt;%1&lt;/b&gt; via &lt;b&gt;%3&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; via &lt;b&gt;%3&lt;/b&gt; la &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -154,14 +262,31 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyDetailsResultsPage.qml" line="170"/>
         <location filename="../src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml" line="174"/>
         <location filename="../src/gui/symbian/pages/JourneyDetailsResultsPage.qml" line="173"/>
-        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="352"/>
+        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="367"/>
         <source>Dur.: %1</source>
         <translation>Dur.: %1</translation>
     </message>
     <message>
-        <location filename="../src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml" line="129"/>
+        <location filename="../src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml" line="43"/>
+        <source>Add to calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml" line="128"/>
         <source>Searching...</source>
         <translation>Cautare...</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="26"/>
+        <source>Result Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/JourneyDetailsResultsPage.qml" line="313"/>
+        <source>%1 to %2</source>
+        <comment>Direction</comment>
+        <extracomment>As in &quot;%1 in direction %2&quot;</extracomment>
+        <translation type="unfinished">%1 la %2</translation>
     </message>
 </context>
 <context>
@@ -170,7 +295,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="105"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="92"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="105"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="102"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="103"/>
         <source>Dep.</source>
         <translation>Plec.</translation>
     </message>
@@ -178,7 +303,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="115"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="97"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="111"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="112"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="113"/>
         <source>Arr.</source>
         <translation>Sos.</translation>
     </message>
@@ -186,7 +311,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="126"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="103"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="118"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="123"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="124"/>
         <source>Dur.</source>
         <translation>Dur.</translation>
     </message>
@@ -194,21 +319,21 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="137"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="109"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="125"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="134"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="135"/>
         <source>Trans.</source>
         <translation>Trans.</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="156"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="147"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="213"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="214"/>
         <source>Loading details</source>
         <translation>Detalii de încărcare</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="157"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="148"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="213"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="214"/>
         <source>please wait...</source>
         <translation>va rugăm așteptați...</translation>
     </message>
@@ -216,7 +341,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="183"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="172"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="175"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="312"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="314"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; la &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -224,7 +349,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="183"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="172"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="175"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="312"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="314"/>
         <source>&lt;b&gt;%1&lt;/b&gt; via &lt;b&gt;%3&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; via &lt;b&gt;%3&lt;/b&gt; la &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -232,7 +357,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="217"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="38"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="213"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="168"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="169"/>
         <source>Earlier</source>
         <translation>Mai devreme</translation>
     </message>
@@ -240,7 +365,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/JourneyResultsPage.qml" line="225"/>
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="50"/>
         <location filename="../src/gui/symbian/pages/JourneyResultsPage.qml" line="222"/>
-        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="176"/>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="177"/>
         <source>Later</source>
         <translation>Mai târziu</translation>
     </message>
@@ -248,6 +373,11 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/sailfishos/pages/JourneyResultsPage.qml" line="139"/>
         <source>Searching...</source>
         <translation>Căutare...</translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/JourneyResultsPage.qml" line="26"/>
+        <source>Results</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -345,14 +475,14 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="331"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="353"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="317"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="318"/>
         <source>Show departures</source>
         <translation>Arată plecări</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="331"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="353"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="317"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="318"/>
         <source>Show arrivals</source>
         <translation>Arată sosiri</translation>
     </message>
@@ -366,9 +496,9 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="362"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="387"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="394"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="318"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="334"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="344"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="319"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="336"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="346"/>
         <source>please select</source>
         <translation>selectați</translation>
     </message>
@@ -381,7 +511,6 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="354"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="378"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="333"/>
         <source>Start search</source>
         <translation>Lansați căutarea</translation>
     </message>
@@ -394,28 +523,28 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="370"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="395"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="345"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="347"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; la &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="372"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="397"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="347"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="349"/>
         <source>&lt;b&gt;%1&lt;/b&gt; via &lt;b&gt;%3&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; via &lt;b&gt;%3&lt;/b&gt; la &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="389"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="415"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="362"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="364"/>
         <source>Select backend</source>
         <translation>Selectați backend</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="402"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="429"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="396"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="407"/>
         <source>Select train</source>
         <translation>Selectați trenul</translation>
     </message>
@@ -442,7 +571,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/sailfishos/pages/MainPage.qml" line="341"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="546"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="594"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="497"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="510"/>
         <source>Clear station</source>
         <translation>Ștergeți stația</translation>
     </message>
@@ -456,7 +585,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="528"/>
         <location filename="../src/gui/sailfishos/pages/MainPage.qml" line="290"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="571"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="489"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="502"/>
         <source>Switch with Departure station</source>
         <translation>Schimbați cu stația de plecare</translation>
     </message>
@@ -464,7 +593,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="535"/>
         <location filename="../src/gui/sailfishos/pages/MainPage.qml" line="297"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="579"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="492"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="505"/>
         <source>Switch with Arrival station</source>
         <translation>Schimbați cu stația de sosire</translation>
     </message>
@@ -472,21 +601,21 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="542"/>
         <location filename="../src/gui/sailfishos/pages/MainPage.qml" line="304"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="587"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="495"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="508"/>
         <source>Switch with Via station</source>
         <translation>Schimbați cu stația de tranzit</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="585"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="633"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="521"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="534"/>
         <source>No results found</source>
         <translation>Nici un rezultat gasit.</translation>
     </message>
     <message>
         <location filename="../src/gui/harmattan/pages/MainPage.qml" line="592"/>
         <location filename="../src/gui/symbian/pages/MainPage.qml" line="640"/>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="528"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="541"/>
         <source>Error loading details</source>
         <translation>Eroare la încărcarea detaliilor</translation>
     </message>
@@ -528,7 +657,12 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <translation>Acum</translation>
     </message>
     <message>
-        <location filename="../src/gui/ubuntu/MainPage.qml" line="441"/>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="334"/>
+        <source>Plan my journey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/ubuntu/MainPage.qml" line="453"/>
         <source>About</source>
         <translation>Despre</translation>
     </message>
@@ -536,52 +670,57 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="14"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="6"/>
         <source>MainWindow</source>
         <translation>FereastraPrincipală</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="24"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="18"/>
         <source>Zurich</source>
         <translation>Zurich</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="31"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="25"/>
         <source>getTimeTableForStation</source>
         <translation>getTimeTableForStation</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="38"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="32"/>
         <source>findStationsByName</source>
         <translation>findStationsByName</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="45"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="39"/>
         <source>findStationsByCoordinates</source>
         <translation>findStationsByCoordinates</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="55"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="56"/>
+        <source>selectStation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="79"/>
         <source>searchJourney</source>
         <translation>searchJourney</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="65"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="93"/>
         <source>searchJourneyEarlier</source>
         <translation>searchJourneyEarlier</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="72"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="100"/>
         <source>searchJourneyLater</source>
         <translation>searchJourneyLater</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="82"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="123"/>
         <source>getJourneyDetails</source>
         <translation>getJourneyDetails</translation>
     </message>
     <message>
-        <location filename="../src/gui/desktop-test/mainwindow.ui" line="92"/>
+        <location filename="../src/gui/desktop-test/mainwindow.ui" line="150"/>
         <source>cancelRequest</source>
         <translation>cancelRequest</translation>
     </message>
@@ -589,7 +728,7 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>ParserAbstract</name>
     <message>
-        <location filename="../src/parser/parser_abstract.cpp" line="122"/>
+        <location filename="../src/parser/parser_abstract.cpp" line="156"/>
         <source>Request timed out.</source>
         <translation>Cererea a expirat.</translation>
     </message>
@@ -621,41 +760,46 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>Taxi</source>
         <translation>Taxi</translation>
     </message>
+    <message>
+        <location filename="../src/parser/parser_dubai_efa.h" line="31"/>
+        <source>Dubai</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ParserEFA</name>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="138"/>
+        <location filename="../src/parser/parser_efa.cpp" line="137"/>
         <source>All</source>
         <translation>Toate</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="139"/>
+        <location filename="../src/parser/parser_efa.cpp" line="138"/>
         <source>Metro Train</source>
         <translation>Tren Metropolitan</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="140"/>
+        <location filename="../src/parser/parser_efa.cpp" line="139"/>
         <source>Metro Tram</source>
         <translation>Tramvai Metropolitan</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="141"/>
+        <location filename="../src/parser/parser_efa.cpp" line="140"/>
         <source>Metro Bus</source>
         <translation>Autobuz Metropolitan</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="142"/>
+        <location filename="../src/parser/parser_efa.cpp" line="141"/>
         <source>Regional Train</source>
         <translation>Tren Regional</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="143"/>
+        <location filename="../src/parser/parser_efa.cpp" line="142"/>
         <source>Regional Coach</source>
         <translation>Antrenor regional</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="144"/>
+        <location filename="../src/parser/parser_efa.cpp" line="143"/>
         <source>Airport(SKYBUS)</source>
         <translation>Aeroport</translation>
     </message>
@@ -666,19 +810,20 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     </message>
     <message>
         <location filename="../src/parser/parser_efa.cpp" line="527"/>
-        <location filename="../src/parser/parser_efa.cpp" line="796"/>
-        <location filename="../src/parser/parser_efa.cpp" line="811"/>
+        <location filename="../src/parser/parser_efa.cpp" line="712"/>
+        <location filename="../src/parser/parser_efa.cpp" line="728"/>
         <source>%1, %2</source>
         <comment>DATE, TIME</comment>
+        <extracomment>DATE, TIME</extracomment>
         <translation>%1, %2</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="852"/>
+        <location filename="../src/parser/parser_efa.cpp" line="768"/>
         <source>&lt;span style=&quot;color:#b30;&quot;&gt;%1 min late&lt;/span&gt;</source>
         <translation>&lt;span style=&quot;color:#b30;&quot;&gt;%1 min întârziere&lt;/span&gt;</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_efa.cpp" line="856"/>
+        <location filename="../src/parser/parser_efa.cpp" line="772"/>
         <source>&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;on time&lt;/span&gt;</source>
         <translation>&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;la timp&lt;/span&gt;</translation>
     </message>
@@ -686,65 +831,127 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>ParserHafasBinary</name>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="93"/>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="114"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="96"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="117"/>
         <source>An error ocurred with the backend</source>
         <translation>A apărut o eroare cu backend-ul</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="442"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="449"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="452"/>
+        <source>Walk</source>
+        <translation type="unfinished">Mers pe jos</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="557"/>
+        <source>, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="449"/>
+        <source>Transfer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/parser/parser_hafasbinary.cpp" line="454"/>
-        <source>&lt;br/&gt;&lt;span style=&quot;color:#b30;&quot;&gt;%1 min late&lt;/span&gt;</source>
-        <translation type="unfinished"/>
+        <source>Use bike</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="444"/>
         <location filename="../src/parser/parser_hafasbinary.cpp" line="456"/>
-        <source>&lt;br/&gt;&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;on time&lt;/span&gt;</source>
-        <translation type="unfinished"/>
+        <source>Drive car</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="520"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="464"/>
+        <source>%1 for %2 min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="472"/>
+        <source> / </source>
+        <comment>Alternative trains</comment>
+        <extracomment>Separator for trains list, if more than one provided</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="507"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="527"/>
+        <source>%n min late</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="514"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="534"/>
+        <source>on time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="544"/>
+        <source>Train canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="547"/>
+        <source>Departure stop canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="550"/>
+        <source>Arrival stop canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="584"/>
+        <source>Journey contains canceled trains!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="626"/>
         <source>Internal error occured, going later is not possible</source>
         <translation>A apărut o eroare internă, a se merge mai tarziu nu este posibil</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="554"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="661"/>
         <source>Internal error occured, going earlier is not possible</source>
         <translation>A apărut o eroare internă, a se merge mai devreme nu este posibil</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="679"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="740"/>
         <source>Your session has expired. Please, perform the search again.</source>
         <translation>Sesiunea dumneavoastră a expirat. Vă rugăm, efectuați din nou căutarea.</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="681"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="742"/>
         <source>One of the station names is too ambiguous.</source>
         <translation>Unul dintre numele stației este prea ambiguu.</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="683"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="744"/>
         <source>No connections have been found that correspond to your request.</source>
         <translation>Nu au fost găsite conexiuni care să corspundă cererii dumneavoastră.</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="685"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="746"/>
         <source>There was an unsuccessful or incomplete search due to a timetable change.</source>
         <translation>A fost o căutare fără succes sau incompletă din cauza unei schimbări în orar.</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="687"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="748"/>
         <source>Unfortunately there was no route found.</source>
         <translation>Din păcate nu s-a găsit nici o rută.</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="689"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="750"/>
         <source>Unfortunately your connection request can currently not be processed. It might be that entered date is not inside the timetable period.</source>
         <translation>Din păcate, solicitarea dvs. de conectare nu poate fi procesată. Este posibil ca data introdusă sa nu se afle în interiorul perioadei de calendar.</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasbinary.cpp" line="691"/>
+        <location filename="../src/parser/parser_hafasbinary.cpp" line="752"/>
         <source>Unknown error ocurred with the backend (error %1).</source>
         <translation>A apărut o eroare necunoscută cu backend-ul (error %1).</translation>
     </message>
@@ -752,90 +959,126 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>ParserHafasXml</name>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="177"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="181"/>
         <source>Backend returns an error: </source>
         <translation>Backend-ul returnează o eroare:</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="209"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="213"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="358"/>
         <source>On-Time</source>
         <translation>La timp</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="446"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="216"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="361"/>
+        <source>Canceled!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="506"/>
         <source>All</source>
         <translation>Toate</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="447"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="507"/>
         <source>All without ICE</source>
         <translation>Toate fără ICE</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="448"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="508"/>
         <source>Only local transport</source>
         <translation>Numai transportul local</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="449"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="509"/>
         <source>Local transport without S-Bahn</source>
         <translation>Transport local fără S-Bahn</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="748"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="609"/>
+        <source>Error parsing reponse from the server: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="619"/>
+        <source>%1 replied: &quot;%2&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="696"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="941"/>
+        <source>, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="742"/>
         <source>Internal error occured, going later is not possible</source>
         <translation>A apărut o eroare internă, a se merge mai tarziu nu este posibil</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="773"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="767"/>
         <source>Internal error occured, going earlier is not possible</source>
         <translation>A apărut o eroare internă, a se merge mai devreme nu este posibil</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="825"/>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="846"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="818"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="839"/>
         <source>Internal error occured: JourneyResultdata not present!</source>
         <translation>A apărut o eroare internă: JourneyResultdata nu este prezent!</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="959"/>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="963"/>
-        <source>Pl.</source>
-        <translation>Pl.</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1022"/>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1041"/>
-        <source>Walk for %n min</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1025"/>
-        <source>Use a Bike for %n min</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1028"/>
-        <source>Use a car for %n min</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1031"/>
-        <source>Take a taxi for %n min</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1037"/>
-        <source>Transfer for %n min</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="877"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="1004"/>
+        <source>Pl. %1</source>
+        <translation type="unfinished">Pl. %1</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1074"/>
-        <source>Internal error occured, Error parsing details data</source>
-        <translation>A apărut o eroare interna, Eroare de analiză a datelor</translation>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="954"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="968"/>
+        <source>Walk</source>
+        <translation type="unfinished">Mers pe jos</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_hafasxml.cpp" line="1109"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="954"/>
+        <source>Transfer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="956"/>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="977"/>
+        <source>%1 for %2 min</source>
+        <extracomment>%1 can be &quot;Walk&quot; or &quot;Transfer&quot;
+----------
+%1 can be &quot;Walk&quot;, &quot;Use bike&quot;, &quot;Take taxi&quot;, or &quot;Drive car&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/parser/parser_hafasxml.cpp" line="958"/>
+        <source>Distance %n meter(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="970"/>
+        <source>Use bike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="972"/>
+        <source>Take taxi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="974"/>
+        <source>Drive car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_hafasxml.cpp" line="1084"/>
         <source>d</source>
         <translation>d</translation>
     </message>
@@ -872,58 +1115,10 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>Taxi</source>
         <translation>Taxi</translation>
     </message>
-</context>
-<context>
-    <name>ParserLondonEFA</name>
     <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="44"/>
-        <source>All</source>
-        <translation>Toate</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="45"/>
-        <source>Tube</source>
-        <translation>Țeavă</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="46"/>
-        <source>Rail</source>
-        <translation>Șină</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="47"/>
-        <source>Coach</source>
-        <translation>Antrenor</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="48"/>
-        <source>DLR</source>
-        <translation>DLR</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="49"/>
-        <source>Tram</source>
-        <translation>Tramvai</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="50"/>
-        <source>Bus</source>
-        <translation>Autobuz</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="51"/>
-        <source>River</source>
-        <translation>Râu</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="52"/>
-        <source>Emirates Air Line</source>
-        <translation>Liniile aeriene Emirate</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_london_efa.cpp" line="53"/>
-        <source>London Overground</source>
-        <translation>Londra deasupra pământului</translation>
+        <location filename="../src/parser/parser_ireland_efa.h" line="31"/>
+        <source>Ireland</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -948,45 +1143,100 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>Local transport without S-Bahn</source>
         <translation>Transport local cu S-Bahn</translation>
     </message>
+    <message>
+        <location filename="../src/parser/parser_mobilebahnde.h" line="35"/>
+        <source>Germany</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ParserMunichEFA</name>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.cpp" line="38"/>
+        <source>All</source>
+        <translation type="unfinished">Toate</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.cpp" line="39"/>
+        <source>S-Bahn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.cpp" line="40"/>
+        <source>U-Bahn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.cpp" line="41"/>
+        <source>Tram</source>
+        <translation type="unfinished">Tramvai</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.cpp" line="42"/>
+        <source>Bus</source>
+        <translation type="unfinished">Autobuz</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.h" line="31"/>
+        <source>Germany</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_munich_efa.h" line="31"/>
+        <source>Munich</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ParserNinetwo</name>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="156"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="165"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Toate</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="157"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="166"/>
         <source>Only trains</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="158"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="167"/>
         <source>not by ferry</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="197"/>
-        <source>via </source>
-        <translation type="unfinished"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="179"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="240"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="279"/>
+        <source>Cannot parse reply from the server</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="201"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="214"/>
+        <source>via %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="407"/>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="411"/>
+        <source>Pl. %1</source>
+        <translation type="unfinished">Pl. %1</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_ninetwo.cpp" line="218"/>
         <source>(%1) %2 
 %3</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="370"/>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="373"/>
-        <source>Pl.</source>
-        <translation type="unfinished"/>
+        <location filename="../src/parser/parser_ninetwo.h" line="60"/>
+        <source>Netherlands</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_ninetwo.cpp" line="375"/>
-        <source>%1 to %2</source>
-        <translation type="unfinished"/>
+        <location filename="../src/parser/parser_ninetwo.h" line="60"/>
+        <source>Belgium</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1025,6 +1275,274 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <location filename="../src/parser/parser_ptvvicgovau.cpp" line="52"/>
         <source>Airport(SKYBUS)</source>
         <translation>Aeroport</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_ptvvicgovau.h" line="31"/>
+        <source>Australia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_ptvvicgovau.h" line="31"/>
+        <source>Victoria</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ParserResRobot</name>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="42"/>
+        <source>Bistro car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="43"/>
+        <source>No animals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="44"/>
+        <source>No reservation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="45"/>
+        <source>Only second class</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="46"/>
+        <source>Optional seat reservation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="47"/>
+        <source>Breakfast in first class</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="48"/>
+        <source>Internet connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="49"/>
+        <source>Food in first class</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="50"/>
+        <source>Mandatory seat reservation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="51"/>
+        <source>Wheelchair lift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="52"/>
+        <source>Catering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="53"/>
+        <source>Sleeping/dormitory car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="56"/>
+        <source>Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="57"/>
+        <source>Bus</source>
+        <translation type="unfinished">Autobuz</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="58"/>
+        <location filename="../src/parser/parser_resrobot.cpp" line="653"/>
+        <source>Replacement bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="59"/>
+        <location filename="../src/parser/parser_resrobot.cpp" line="654"/>
+        <source>Replacement taxi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="60"/>
+        <source>Express bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="62"/>
+        <source>Airport bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="63"/>
+        <source>Airport bus/airport taxi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="64"/>
+        <source>Airport taxi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="65"/>
+        <source>Ferry</source>
+        <translation type="unfinished">Bac</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="66"/>
+        <source>Walk</source>
+        <translation type="unfinished">Mers pe jos</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="67"/>
+        <source>Walk (long range)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="68"/>
+        <source>Berthage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="69"/>
+        <source>County taxi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="70"/>
+        <source>Night train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="71"/>
+        <source>Normal ferry (reduced price)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="72"/>
+        <source>Commuter train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="73"/>
+        <source>Day coach in night train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="74"/>
+        <source>High-speed train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="75"/>
+        <source>High-speed train (taxi connection)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="76"/>
+        <source>Special bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="77"/>
+        <source>Special train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="78"/>
+        <source>Tram</source>
+        <translation type="unfinished">Tramvai</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="79"/>
+        <source>City traffic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="80"/>
+        <source>Metro</source>
+        <translation type="unfinished">Metrou</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="81"/>
+        <source>Train</source>
+        <translation type="unfinished">Tren</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="83"/>
+        <source>Train taxi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="85"/>
+        <source>International ferry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="86"/>
+        <source>International train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="87"/>
+        <source>Other train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="113"/>
+        <source>All</source>
+        <translation type="unfinished">Toate</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="114"/>
+        <source>Train and local trans., not express bus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="115"/>
+        <source>Express bus and local trans., not train</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="309"/>
+        <location filename="../src/parser/parser_resrobot.cpp" line="362"/>
+        <location filename="../src/parser/parser_resrobot.cpp" line="395"/>
+        <location filename="../src/parser/parser_resrobot.cpp" line="422"/>
+        <source>Cannot parse reply from the server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="338"/>
+        <source>New time: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="509"/>
+        <source>Arrivals</source>
+        <translation type="unfinished">Sosiri</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="511"/>
+        <source>Departures</source>
+        <translation type="unfinished">Plecări</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.cpp" line="512"/>
+        <source>ddd MMM d, HH:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_resrobot.h" line="64"/>
+        <source>Sweden</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1214,6 +1732,44 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>Yountville Shuttle</source>
         <translation>Yountville Shuttle</translation>
     </message>
+    <message>
+        <location filename="../src/parser/parser_sf_bay_efa.h" line="31"/>
+        <source>USA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_sf_bay_efa.h" line="31"/>
+        <source>SF Bay</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ParserSalzburgEFA</name>
+    <message>
+        <location filename="../src/parser/parser_salzburg_efa.cpp" line="37"/>
+        <source>All</source>
+        <translation type="unfinished">Toate</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_salzburg_efa.cpp" line="38"/>
+        <source>S-Bahn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_salzburg_efa.cpp" line="39"/>
+        <source>Bus</source>
+        <translation type="unfinished">Autobuz</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_salzburg_efa.h" line="31"/>
+        <source>Austria</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_salzburg_efa.h" line="31"/>
+        <source>Salzburg</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ParserSydneyEFA</name>
@@ -1242,6 +1798,16 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>STA School Bus</source>
         <translation>Autobuz școlar STA</translation>
     </message>
+    <message>
+        <location filename="../src/parser/parser_sydney_efa.h" line="31"/>
+        <source>Australia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_sydney_efa.h" line="31"/>
+        <source>Sydney</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ParserXmlNri</name>
@@ -1250,23 +1816,33 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>All</source>
         <translation>Toate</translation>
     </message>
+    <message>
+        <location filename="../src/parser/parser_xmlnri.h" line="31"/>
+        <source>Norway</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ParserXmlOebbAt</name>
     <message>
-        <location filename="../src/parser/parser_xmloebbat.cpp" line="34"/>
+        <location filename="../src/parser/parser_xmloebbat.cpp" line="35"/>
         <source>All</source>
         <translation>Toate</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmloebbat.cpp" line="35"/>
+        <location filename="../src/parser/parser_xmloebbat.cpp" line="36"/>
         <source>All without ICE, TGV</source>
         <translation>Toate fără ICE, TGV</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmloebbat.cpp" line="36"/>
+        <location filename="../src/parser/parser_xmloebbat.cpp" line="37"/>
         <source>Einfach-Raus-Ticket</source>
         <translation>Bilet Einfach-Raus</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_xmloebbat.h" line="31"/>
+        <source>Austria</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1284,17 +1860,22 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     <message>
         <location filename="../src/parser/parser_xmlrejseplanendk.cpp" line="55"/>
         <source>All without buses </source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/parser/parser_xmlrejseplanendk.cpp" line="56"/>
         <source>Only local transport</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/parser/parser_xmlrejseplanendk.cpp" line="57"/>
         <source>Local transport without S-Bahn</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_xmlrejseplanendk.h" line="31"/>
+        <source>Denmark</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1309,6 +1890,11 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
         <source>All without ICE</source>
         <translation>Toate fără ICE</translation>
     </message>
+    <message>
+        <location filename="../src/parser/parser_xmlsbbch.h" line="31"/>
+        <source>Switzerland</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ParserXmlVasttrafikSe</name>
@@ -1319,76 +1905,77 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     </message>
     <message>
         <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="294"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="440"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="442"/>
         <source>&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;on time&lt;/span&gt;</source>
         <translation>&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;la timp&lt;/span&gt;</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="320"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="354"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="474"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="488"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="321"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="356"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="477"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="492"/>
         <source>%1, %2</source>
         <comment>DATE, TIME</comment>
+        <extracomment>DATE, TIME</extracomment>
         <translation>%1, %2</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="371"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="376"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="373"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="378"/>
         <source>Track %1</source>
         <translation>Linia %1</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="381"/>
-        <source>to %1</source>
-        <translation>la %1</translation>
-    </message>
-    <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="383"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="385"/>
         <source>Walk</source>
         <translation>Mers pe jos</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="401"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="416"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="403"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="418"/>
         <source>&lt;br/&gt;&lt;span style=&quot;color:#b30;&quot;&gt;%1 min late&lt;/span&gt;</source>
         <translation>&lt;br/&gt;&lt;span style=&quot;color:#b30;&quot;&gt;%1 min întârziere&lt;/span&gt;</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="407"/>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="418"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="409"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="420"/>
         <source>&lt;br/&gt;&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;on time&lt;/span&gt;</source>
         <translation>&lt;br/&gt;&lt;span style=&quot;color:#093; font-weight: normal;&quot;&gt;la timp&lt;/span&gt;</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="433"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="435"/>
         <source>%1:%2</source>
         <translation>%1:%2</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="438"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="440"/>
         <source>&lt;span style=&quot;color:#b30;&quot;&gt;traffic warning&lt;/span&gt;</source>
         <translation>&lt;span style=&quot;color:#b30;&quot;&gt;avertizare trafic&lt;/span&gt;</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="496"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="500"/>
         <source>Bus</source>
         <translation>Autobuz</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="496"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="500"/>
         <source>Exp Bus</source>
         <translation>Exp Bus</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="496"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="500"/>
         <source>Tram</source>
         <translation>Tramvai</translation>
     </message>
     <message>
-        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="496"/>
+        <location filename="../src/parser/parser_xmlvasttrafikse.cpp" line="500"/>
         <source>Ferry</source>
         <translation>Bac</translation>
+    </message>
+    <message>
+        <location filename="../src/parser/parser_xmlvasttrafikse.h" line="31"/>
+        <source>Sweden</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1506,12 +2093,12 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>StationSelect</name>
     <message>
-        <location filename="../src/gui/ubuntu/components/StationSelect.qml" line="66"/>
+        <location filename="../src/gui/ubuntu/components/StationSelect.qml" line="80"/>
         <source>Search for Station...</source>
         <translation>Căutare stații...</translation>
     </message>
     <message>
-        <location filename="../src/gui/ubuntu/components/StationSelect.qml" line="127"/>
+        <location filename="../src/gui/ubuntu/components/StationSelect.qml" line="143"/>
         <source>Click the star icon on the search results to add or remove a station as a favorite</source>
         <translation>Faceți click pe pictograma steluță din rezultatul cautărilor pentru a adăuga sau a șterge o stație ca favorită</translation>
     </message>
@@ -1519,44 +2106,44 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>StationSelectPage</name>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="76"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="77"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="64"/>
         <source>Search for Station...</source>
         <translation>Căutare stații...</translation>
     </message>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="97"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="109"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="83"/>
         <source>Searching ...</source>
         <translation>Căutare...</translation>
     </message>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="115"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="127"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="117"/>
         <source>Requesting GPS...</source>
         <translation>Solicitare GPS...</translation>
     </message>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="142"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="154"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="144"/>
         <source>Click the star icon in the search results to add or remove a station as a favorite</source>
         <translation>Faceți click pe pictograma steluță din rezultatul cautărilor pentru a adăuga sau a șterge o stație ca favorită</translation>
     </message>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="152"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="164"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="155"/>
         <source>Start typing station name into the search box to see a list stations</source>
         <translation>Începeți să tastați numele stației în căsuța de căutare pentru a vedea o listă cu stațiile</translation>
     </message>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="193"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="205"/>
         <location filename="../src/gui/sailfishos/pages/StationSelectPage.qml" line="151"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="202"/>
         <source>Searching for stations...</source>
         <translation>Căutare stații...</translation>
     </message>
     <message>
-        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="198"/>
+        <location filename="../src/gui/harmattan/pages/StationSelectPage.qml" line="210"/>
         <location filename="../src/gui/sailfishos/pages/StationSelectPage.qml" line="154"/>
         <location filename="../src/gui/symbian/pages/StationSelectPage.qml" line="205"/>
         <source>Waiting for GPS lock...</source>
@@ -1599,27 +2186,27 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
 <context>
     <name>TimeTableResultsPage</name>
     <message>
-        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="48"/>
+        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="32"/>
         <source>Arrivals</source>
         <translation>Sosiri</translation>
     </message>
     <message>
-        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="48"/>
+        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="32"/>
         <source>Departures</source>
         <translation>Plecări</translation>
     </message>
     <message>
-        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="137"/>
+        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="103"/>
         <source>from</source>
         <translation>de la</translation>
     </message>
     <message>
-        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="137"/>
+        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="103"/>
         <source>to</source>
         <translation>la</translation>
     </message>
     <message>
-        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="154"/>
+        <location filename="../src/gui/ubuntu/TimeTableResultsPage.qml" line="120"/>
         <source>Pl. %1</source>
         <translation>Pl. %1</translation>
     </message>
@@ -1674,14 +2261,24 @@ Adăugat de Fahrplan. Vă rugăm, reverificați informația înainte de călăto
     </message>
 </context>
 <context>
+    <name>about</name>
+    <message>
+        <location filename="../src/gui/about.js" line="35"/>
+        <source>&lt;p&gt;If fahrplan is not translated in your language, help us &lt;a href=&quot;https://www.transifex.com/projects/p/fahrplan/&quot;&gt;translate it to your language&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;If you like fahrplan, I would appreciate a donation. &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=DW3LGJ6VEKFVS&quot;&gt;Donate using PayPal&lt;/a&gt;&lt;/p&gt;&lt;p&gt;If you encounter bugs or have feature requests visit the &lt;a href=&quot;https://github.com/smurfy/fahrplan/issues&quot;&gt;Fahrplan issue tracker on GitHub&lt;/a&gt;.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
-        <location filename="../src/gui/ubuntu/main.qml" line="44"/>
+        <location filename="../src/gui/ubuntu/main.qml" line="45"/>
+        <location filename="../src/gui/ubuntu/main.qml" line="50"/>
         <source>Journey</source>
         <translation>Călătorie</translation>
     </message>
     <message>
         <location filename="../src/gui/ubuntu/main.qml" line="56"/>
+        <location filename="../src/gui/ubuntu/main.qml" line="61"/>
         <source>Time table</source>
         <translation>Orar</translation>
     </message>

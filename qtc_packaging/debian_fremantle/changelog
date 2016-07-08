@@ -1,3 +1,66 @@
+fahrplan2 (2.0.27) unstable; urgency=low
+  * Save trainrestrictions to settings
+  * Backends are now sorted
+  * Updated Vasttrafik's backend to version 2
+  * Updated and Fixed ResRobot backend
+  * Added Matka.fi backend
+  
+ -- smurfy <maemo@smurfy.de>  Sat, 19 March 2016 21:00:00 +0100
+
+fahrplan2 (2.0.26) unstable; urgency=low
+  * Improved 9292ov.nl backend
+  * Ubuntu: Various GUI improvements
+  * Improved EFA Backend
+  * SailfishOS: Added calendar settings
+  * SailfishOS: Added display of error messages if search fails
+  * Improved HafasBinary Backend (added error message)
+  
+ -- smurfy <maemo@smurfy.de>  Thu, 11 June 2015 20:00:00 +0200
+  
+fahrplan2 (2.0.25) unstable; urgency=low
+  * Fix: Rendering of details page could get borked (occured with MVV, but possible with all backends)
+  * Updated translations
+  * Updated icons on most platforms
+  * Display parser short name on main page
+
+ -- smurfy <maemo@smurfy.de>  Sat, 20 Mar 2015 22:00:00 +0200
+ 
+fahrplan2 (2.0.24) unstable; urgency=low
+  * Added MVV backend (Germany, Munich)
+  * Added SVV backend (Austria, Salzburg)
+  * Added ResRobot backend (Sweden)
+  * Normalized backend names
+  * Updated translations and added swedish translation
+
+fahrplan2 (2.0.23) unstable; urgency=low
+  * Fix for bahn.de earlier/later
+
+ -- smurfy <maemo@smurfy.de>  Sat, 16 Dec 2014 22:00:00 +0200
+ 
+fahrplan2 (2.0.22) unstable; urgency=low
+  * Fix for bahn.de
+  * Added new about screen
+
+ -- smurfy <maemo@smurfy.de>  Sat, 16 Dec 2014 19:00:00 +0200
+ 
+fahrplan2 (2.0.21) unstable; urgency=low
+  * Fix for bahn.de and öbb.at backend to have more later/earlier results
+  * Fix for encoding problems with öbb.at
+  * Show canceled trains / stops in journey details
+  * Show alternative trains in journey details
+  * Show realtime train information for sbb.ch timetable
+  * Adding polish translation by maurycy
+
+ -- smurfy <maemo@smurfy.de>  Sat, 22 Nov 2014 12:00:00 +0200
+
+fahrplan2 (2.0.20) unstable; urgency=low
+  * Added more translations and updated existing
+  * Added showing train direction for multiple backends
+  * Improved performance for sbb.ch, reiseinfo.no, rejseplanen.dk and 9292.nl backends
+  * Switched oebb.at to other backend protocol
+
+ -- smurfy <maemo@smurfy.de>  Mon, 3 Nov 2014 12:00:00 +0200
+
 fahrplan2 (2.0.19) unstable; urgency=low
   * fix bahn.de via stations
   * added real-time delay info to details page for bahn.de

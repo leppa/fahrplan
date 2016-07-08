@@ -17,18 +17,25 @@
 **
 ****************************************************************************/
 
+#include <ctime>
+
 #include <QtCore/QTranslator>
 
 #if defined(BUILD_FOR_HARMATTAN) || defined(BUILD_FOR_MAEMO_5) || defined(BUILD_FOR_SYMBIAN)
     #include <QtDeclarative>
 #elif defined(BUILD_FOR_UBUNTU)
-    #include <QApplication>
+    #include <QGuiApplication>
     #include <QtQuick>
     #include <QtQml>
 #elif defined(BUILD_FOR_SAILFISHOS)
     #include <sailfishapp.h>
     #include <QtQuick>
     #include <QtQml>
+    #if defined(BUILD_FOR_OPENREPOS)
+        #include <unistd.h>
+        #include <grp.h>
+        #include <pwd.h>
+    #endif
 #elif defined(BUILD_FOR_BLACKBERRY)
 #   include <bb/cascades/Application>
 #   include <bb/cascades/QmlDocument>
@@ -68,28 +75,48 @@ using namespace bb::cascades;
 #include "models/favorites.h"
 #include "models/timetable.h"
 #include "models/trainrestrictions.h"
+#include "models/backends.h"
 
 #if defined(BUILD_FOR_HARMATTAN) || defined(BUILD_FOR_MAEMO_5) || defined(BUILD_FOR_SYMBIAN)
 Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
+    qsrand(QDateTime::currentDateTimeUtc().toTime_t());
+
     #if defined(BUILD_FOR_SAILFISHOS)
+        //To support calendar access
+        #if defined(BUILD_FOR_OPENREPOS)
+            qDebug()<<"openrepos.net build";
+            setuid(getpwnam("nemo")->pw_uid);
+            setgid(getgrnam("privileged")->gr_gid);
+        #endif
+
         QGuiApplication* app = SailfishApp::application(argc, argv);
     #elif defined(BUILD_FOR_BLACKBERRY)
         QScopedPointer<Application> app(new Application(argc, argv));
     #elif defined(HAVE_DECLARATIVE_CACHE)
         QApplication* app = MDeclarativeCache::qApplication(argc, argv);
+    #elif defined(BUILD_FOR_UBUNTU)
+        QGuiApplication* app = new QGuiApplication(argc, argv);
+        app->setWindowIcon(QIcon(":/fahrplan2.svg"));
     #else
         QApplication* app = new QApplication(argc, argv);
+        #if defined(BUILD_FOR_DESKTOP)
+            app->setWindowIcon(QIcon(":/fahrplan2_64.png"));
+        #endif
     #endif
 
 #ifdef Q_OS_BLACKBERRY
     new LanguageChangeListener(app.data());
 #else
+    QString localeName = QLocale().name();
+
+    qDebug() <<"Using "<<localeName<<" locale";
+
     // Install translations
     QTranslator translator;
-    translator.load(QString("fahrplan_%1").arg(QLocale().name()), ":/translations");
+    translator.load(QString("fahrplan_%1").arg(localeName), ":/translations");
     app->installTranslator(&translator);
 #endif
 
@@ -120,6 +147,9 @@ int main(int argc, char *argv[])
         qmlRegisterUncreatableType<Trainrestrictions>("Fahrplan", 1, 0, "Trainrestrictions"
             , "Trainrestrictions cannot be created from QML. "
               "Access it through FahrplanBackend.trainrestrictions.");
+        qmlRegisterUncreatableType<Backends>("Fahrplan", 1, 0, "Backends"
+            , "Backends cannot be created from QML. "
+              "Access it through FahrplanBackend.backends.");
         qmlRegisterType<JourneyResultList>("Fahrplan", 1, 0, "JourneyResultList");
         qmlRegisterType<JourneyResultItem>("Fahrplan", 1, 0, "JourneyResultItem");
         qmlRegisterType<JourneyDetailResultList>("Fahrplan", 1, 0, "JourneyDetailResultList");
@@ -152,11 +182,9 @@ int main(int argc, char *argv[])
             qDebug()<<"Ubuntu";
             view->setSource(QUrl("qrc:/src/gui/ubuntu/main.qml"));
             view->setResizeMode(QQuickView::SizeRootObjectToView);
-            if (QApplication::arguments().contains("--fullscreen")) {
-                view->showFullScreen();
-            } else {
-                view->show();
-            }
+            view->show();
+            QSettings settings(FAHRPLAN_SETTINGS_NAMESPACE, "fahrplan2");
+            view->setGeometry(settings.value("geometry", QRect(100, 100, 400, 600)).toRect());
         #elif defined(BUILD_FOR_SAILFISHOS)
             qDebug()<<"SailfishOs";
             view->setSource(QUrl("qrc:/src/gui/sailfishos/main.qml"));
@@ -195,5 +223,17 @@ int main(int argc, char *argv[])
 
     qDebug()<<"Exec";
 
-    return app->exec();
+    int error = app->exec();
+    #if defined(BUILD_FOR_UBUNTU)
+        settings.setValue("geometry", view->geometry());
+    #endif
+
+#ifndef Q_OS_BLACKBERRY
+    // For some reason, this causes a weird freeze of
+    // Fahrplan on BlackBerry 10 so that it can only
+    // be closed by restarting the phone.
+    delete app;
+#endif
+
+    return error;
 }

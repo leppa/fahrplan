@@ -20,16 +20,17 @@
 #ifndef PARSER_XMLOEBBAT_H
 #define PARSER_XMLOEBBAT_H
 
-#include "parser_hafasxml.h"
+#include "parser_hafasbinary.h"
 
-class ParserXmlOebbAt : public ParserHafasXml
+class ParserXmlOebbAt: public ParserHafasBinary
 {
     Q_OBJECT
 
 public:
     explicit ParserXmlOebbAt(QObject *parent = 0);
-    static QString getName() { return QString::fromUtf8("öbb.at"); }
-    QString name() { return QString::fromUtf8("öbb.at"); }
+    static QString getName() { return QString("%1 (oebb.at)").arg(tr("Austria")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "oebb.at"; }
 
 protected:
     QStringList getTrainRestrictions();

@@ -20,6 +20,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QScrollBar>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -44,11 +46,26 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->getJourneyDetails, SIGNAL(clicked()), this, SLOT(getJourneyDetailsClicked()));
     connect(fahrplan, SIGNAL(parserJourneyDetailsResult(JourneyDetailResultList*)), this, SLOT(journeyDetailResult(JourneyDetailResultList*)));
 
+    connect(ui->selectStation, SIGNAL(clicked()), this, SLOT(selectStationClicked()));
+
     connect(fahrplan, SIGNAL(parserChanged(const QString &, int)), this, SLOT(parserChanged(const QString &, int)));
 
-    QStringListModel *parserModel = new QStringListModel();
-    parserModel->setStringList(fahrplan->getParserList());
-    ui->parser->setModel(parserModel);
+    if (fahrplan->backends()->count() > 0)
+    {
+        ui->parser->clear();
+        for (int i=0; i < fahrplan->backends()->count(); i++) {
+            QModelIndex index = fahrplan->backends()->index(i, 0, QModelIndex());
+            ui->parser->addItem(fahrplan->backends()->data(index, Backends::Name).toString());
+        }
+        ui->parser->setCurrentIndex(0);
+    }
+
+    ui->stationType->addItem("Departure", Fahrplan::DepartureStation);
+    ui->stationType->addItem("Via", Fahrplan::ViaStation);
+    ui->stationType->addItem("Arrival", Fahrplan::ArrivalStation);
+    ui->stationType->addItem("Current", Fahrplan::CurrentStation);
+    ui->stationType->addItem("Direction", Fahrplan::DirectionStation);
+    ui->stationsList->setModel(fahrplan->stationSearchResults());
 
     connect(ui->parser, SIGNAL( currentIndexChanged(int)), this, SLOT( parserCurrentIndexChanged(int)));
 
@@ -62,14 +79,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::parserCurrentIndexChanged(int index)
 {
-    fahrplan->setParser(index);
+    fahrplan->setParser(fahrplan->backends()->getParserIdForItemIndex(index));
 }
 
 void MainWindow::parserChanged(const QString &name, int index)
 {
     setWindowTitle("Fahrplan - TestApp - " + name + " - " + QString::number(index));
 
-    ui->parser->setCurrentIndex(index);
+    ui->parser->setCurrentIndex(fahrplan->backends()->getItemIndexForParserId(index));
 
     ui->trainRestrictions->setEnabled(false);
     qDebug()<<fahrplan->trainrestrictions()->count();
@@ -103,51 +120,50 @@ void MainWindow::cancelRequestClicked()
 
 void MainWindow::findStationsByNameClicked()
 {
-    ui->findStationResults->clear();
-    ui->findStationResults->append("Searching...");
+    ui->searchJourneyResults->clear();
+    ui->searchJourneyResults->append("Searching...");
     fahrplan->findStationsByName(ui->stationName->text());
 }
 
 void MainWindow::getTimeTableForStationClicked()
 {
-    ui->findStationResults->clear();
-    ui->findStationResults->append("Searching...");
-    fahrplan->stationSearchResults()->selectStation(Fahrplan::CurrentStation, ui->stationIndex->value());
+    ui->searchJourneyResults->clear();
+    ui->searchJourneyResults->append("Searching...");
+    fahrplan->setMode(Fahrplan::NowMode);
     fahrplan->getTimeTable();
 }
 
 void MainWindow::findStationsByCoordinatesClicked()
 {
-    ui->findStationResults->clear();
-    ui->findStationResults->append("Searching...");
+    ui->searchJourneyResults->clear();
+    ui->searchJourneyResults->append("Searching...");
     fahrplan->findStationsByCoordinates(11.558338, 48.140228);
 }
 
 void MainWindow::timeTableResult()
 {
-    ui->findStationResults->clear();
+    ui->searchJourneyResults->clear();
     for (int i=0; i < fahrplan->timetable()->count(); i++) {
         QModelIndex index = fahrplan->timetable()->index(i, 0, QModelIndex());
-        ui->findStationResults->append(fahrplan->timetable()->data(index, Timetable::CurrentStation).toString());
-        ui->findStationResults->append(fahrplan->timetable()->data(index, Timetable::Time).toDateTime().toString(QLocale().timeFormat(QLocale::ShortFormat)));
-        ui->findStationResults->append(fahrplan->timetable()->data(index, Timetable::DestinationStation).toString());
-        ui->findStationResults->append(fahrplan->timetable()->data(index, Timetable::TrainType).toString());
-        ui->findStationResults->append(fahrplan->timetable()->data(index, Timetable::Platform).toString());
-        ui->findStationResults->append("------------------------------");
+        ui->searchJourneyResults->append(fahrplan->timetable()->data(index, Timetable::CurrentStation).toString());
+        ui->searchJourneyResults->append(fahrplan->timetable()->data(index, Timetable::Time).toTime().toString(QLocale().timeFormat(QLocale::ShortFormat)));
+        ui->searchJourneyResults->append(fahrplan->timetable()->data(index, Timetable::DestinationStation).toString());
+        ui->searchJourneyResults->append(fahrplan->timetable()->data(index, Timetable::TrainType).toString());
+        ui->searchJourneyResults->append(fahrplan->timetable()->data(index, Timetable::Platform).toString());
+        ui->searchJourneyResults->append(fahrplan->timetable()->data(index, Timetable::MiscInfo).toString());
+        ui->searchJourneyResults->append("------------------------------");
     }
-
+    QScrollBar *scrollbar = ui->searchJourneyResults->verticalScrollBar();
+    scrollbar->setValue(scrollbar->minimum());
 }
 
 void MainWindow::stationsResult()
 {
-    ui->findStationResults->clear();
-    for (int i=0; i < fahrplan->stationSearchResults()->count(); i++) {
-        QModelIndex index = fahrplan->stationSearchResults()->index(i, 0, QModelIndex());
-        ui->findStationResults->append(QString::number(i) + " -> " + fahrplan->stationSearchResults()->data(index, StationSearchResults::Name).toString());
-    }
-
-    if (fahrplan->stationSearchResults()->count() == 0) {
-        ui->findStationResults->append("No Results");
+    ui->searchJourneyResults->clear();
+    if (fahrplan->stationSearchResults()->count() > 0) {
+        ui->stationsList->setCurrentIndex(fahrplan->stationSearchResults()->index(0));
+    } else {
+        ui->searchJourneyResults->append("No Results");
     }
 }
 
@@ -158,8 +174,6 @@ void MainWindow::searchJourneyClicked()
     fahrplan->setDateTime(QDateTime::currentDateTime());
     fahrplan->setMode(Fahrplan::DepartureMode);
     fahrplan->setTrainrestriction(ui->trainRestrictions->currentIndex());
-    fahrplan->stationSearchResults()->selectStation(Fahrplan::DepartureStation, 0);
-    fahrplan->stationSearchResults()->selectStation(Fahrplan::ArrivalStation, 10);
     fahrplan->searchJourney();
 }
 
@@ -207,6 +221,8 @@ void MainWindow::journeyResult(JourneyResultList *result)
     if (result->itemcount() == 0) {
         ui->searchJourneyResults->append("No Results");
     }
+    QScrollBar *scrollbar = ui->searchJourneyResults->verticalScrollBar();
+    scrollbar->setValue(scrollbar->minimum());
 }
 
 void MainWindow::getJourneyDetailsClicked()
@@ -214,6 +230,14 @@ void MainWindow::getJourneyDetailsClicked()
     ui->getJourneyDetailsResults->clear();
     ui->getJourneyDetailsResults->append("Loading...");
     fahrplan->parser()->getJourneyDetails(ui->journeyResultItemIds->currentText());
+}
+
+void MainWindow::selectStationClicked()
+{
+    if (ui->stationsList->currentIndex().isValid())
+        fahrplan->stationSearchResults()
+                ->selectStation(ui->stationType->itemData(ui->stationType->currentIndex()).toInt(),
+                                ui->stationsList->currentIndex().row());
 }
 
 void MainWindow::journeyDetailResult(JourneyDetailResultList *result)
@@ -244,4 +268,6 @@ void MainWindow::journeyDetailResult(JourneyDetailResultList *result)
     if (result->itemcount() == 0) {
         ui->getJourneyDetailsResults->append("No Results");
     }
+    QScrollBar *scrollbar = ui->getJourneyDetailsResults->verticalScrollBar();
+    scrollbar->setValue(scrollbar->minimum());
 }

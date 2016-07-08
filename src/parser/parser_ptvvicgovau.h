@@ -21,7 +21,6 @@
 #define PARSER_PTVVICGOVAU_H
 
 #include <QObject>
-#include <QXmlResultItems>
 #include "parser_efa.h"
 
 class ParserPTVVicGovAu : public ParserEFA
@@ -29,8 +28,9 @@ class ParserPTVVicGovAu : public ParserEFA
     Q_OBJECT
 public:
     explicit ParserPTVVicGovAu(QObject *parent = 0);
-    static QString getName() { return "ptv.vic.gov.au"; }
-    QString name() { return "ptv.vic.gov.au"; }
+    static QString getName() { return QString("%1, %2 (ptv.vic.gov.au)").arg(tr("Australia"), tr("Victoria")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "ptv.vic.gov.au"; }
 
 protected:
     QStringList getTrainRestrictions();

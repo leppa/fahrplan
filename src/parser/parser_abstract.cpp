@@ -24,6 +24,17 @@
 #include <QNetworkRequest>
 #include <QTimer>
 
+#include <zlib.h>
+
+#ifdef BUILD_FOR_QT5
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#else
+#include <QScriptEngine>
+#include <QScriptValue>
+#endif
+
 ParserAbstract::ParserAbstract(QObject *parent) :
     QObject(parent)
 {
@@ -85,7 +96,7 @@ void ParserAbstract::cancelRequest()
     }
 }
 
-void ParserAbstract::sendHttpRequest(QUrl url, QByteArray data)
+void ParserAbstract::sendHttpRequest(QUrl url, QByteArray data, const QList<QPair<QByteArray,QByteArray> > &additionalHeaders)
 {
     QNetworkRequest request;
     request.setUrl(url);
@@ -96,6 +107,11 @@ void ParserAbstract::sendHttpRequest(QUrl url, QByteArray data)
     request.setRawHeader("User-Agent", userAgent.toAscii());
 #endif
     request.setRawHeader("Cache-Control", "no-cache");
+    for (QList<QPair<QByteArray,QByteArray> >::ConstIterator it = additionalHeaders.constBegin(); it != additionalHeaders.constEnd(); ++it)
+        request.setRawHeader(it->first, it->second);
+    if (!acceptEncoding.isEmpty()) {
+        request.setRawHeader("Accept-Encoding", acceptEncoding);
+    }
 
     if (data.isNull()) {
         lastRequest = NetworkManager->get(request);
@@ -106,6 +122,28 @@ void ParserAbstract::sendHttpRequest(QUrl url, QByteArray data)
     requestTimeout->start(30000);
 
     connect(lastRequest, SIGNAL(downloadProgress(qint64,qint64)), this, SLOT(networkReplyDownloadProgress(qint64,qint64)));
+}
+
+QVariantMap ParserAbstract::parseJson(const QByteArray &json) const
+{
+    QVariantMap doc;
+#ifdef BUILD_FOR_QT5
+    doc = QJsonDocument::fromJson(json).toVariant().toMap();
+#else
+    QString utf8(QString::fromUtf8(json));
+
+    // Validation of JSON according to RFC 4627, section 6
+    QString tmp(utf8);
+    if (tmp.replace(QRegExp("\"(\\\\.|[^\"\\\\])*\""), "")
+           .contains(QRegExp("[^,:{}\\[\\]0-9.\\-+Eaeflnr-u \\n\\r\\t]")))
+        return doc;
+
+    QScriptEngine *engine = new QScriptEngine();
+    doc = engine->evaluate("(" + utf8 + ")").toVariant().toMap();
+    delete engine;
+#endif
+
+    return doc;
 }
 
 void ParserAbstract::networkReplyDownloadProgress(qint64 bytesReceived, qint64 bytesTotal)
@@ -243,3 +281,44 @@ void ParserAbstract::findStationsByCoordinates(qreal longitude, qreal latitude)
      qDebug() << "ParserAbstract::parseJourneyDetails";
  }
 
+ QByteArray ParserAbstract::gzipDecompress(QByteArray compressData)
+ {
+     //decompress GZIP data
+
+     const int buffersize = 16384;
+     quint8 buffer[buffersize];
+
+     z_stream cmpr_stream;
+     cmpr_stream.next_in = (unsigned char *)compressData.data();
+     cmpr_stream.avail_in = compressData.size();
+
+     cmpr_stream.zalloc = Z_NULL;
+     cmpr_stream.zfree = Z_NULL;
+     cmpr_stream.opaque = Z_NULL;
+
+     // We get data in gzip format, and to parse it, according
+     // to the documentation, we need to add 16 to windowBits.
+     if (inflateInit2(&cmpr_stream, MAX_WBITS + 16) != Z_OK) {
+         qDebug() << "cmpr_stream error!";
+     }
+
+     QByteArray uncompressed;
+     do {
+         cmpr_stream.next_out = buffer;
+         cmpr_stream.avail_out = buffersize;
+
+         int status = inflate( &cmpr_stream, Z_SYNC_FLUSH );
+
+         if(status == Z_OK || status == Z_STREAM_END) {
+             uncompressed.append(QByteArray::fromRawData((char *)buffer, buffersize - cmpr_stream.avail_out));
+         } else {
+             inflateEnd(&cmpr_stream);
+         }
+
+         if(status == Z_STREAM_END) {
+             inflateEnd(&cmpr_stream);
+             break;
+         }
+     } while(cmpr_stream.avail_out == 0);
+     return uncompressed;
+ }

@@ -43,9 +43,9 @@ Page {
                 layout: StackLayout { orientation: LayoutOrientation.LeftToRight }
 
                 ImageView {
-                    property int size: 150
+                    property int size: 200
 
-                    imageSource: "qrc:/data/fahrplan2_150.png"
+                    imageSource: "qrc:/data/fahrplan2-square_256.png"
                     minWidth: size
                     minHeight: size
                     maxWidth: size
@@ -64,14 +64,15 @@ Page {
                         }
                     }
                     Label {
-                        text: "by smurfy (maemo@smurfy.de)"
+                        text: qsTr("Version: <b>%1</b>").arg(fahrplan.version)
+                              + Retranslate.onLocaleOrLanguageChanged
+                        textFormat: TextFormat.Html
                         topMargin: 0
                         bottomMargin: 0
                     }
                     Label {
-                        text: qsTr("Version: <b>%1</b>").arg(fahrplan.version)
-                              + Retranslate.onLocaleOrLanguageChanged
-                        textFormat: TextFormat.Html
+                        text: About.copyright
+                        multiline: true
                         topMargin: 0
                         bottomMargin: 0
                     }
@@ -79,8 +80,62 @@ Page {
             }
 
             Label {
+                text: qsTr("Maintainers") + Retranslate.onLocaleOrLanguageChanged
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                }
+            }
+            Label {
                 multiline: true
-                text: About.aboutText
+                text: "- " + About.maintainers.join("\n- ")
+//                textFormat: TextFormat.Html
+            }
+
+            Label {
+                text: qsTr("Code Contributors") + Retranslate.onLocaleOrLanguageChanged
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                }
+            }
+            Label {
+                multiline: true
+                text: About.codeContributors.join(", ")
+//                textFormat: TextFormat.Html
+            }
+
+            Label {
+                text: qsTr("Translators") + Retranslate.onLocaleOrLanguageChanged
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                }
+            }
+            Label {
+                multiline: true
+                text: "- " + About.translators.join("\n- ")
+//                textFormat: TextFormat.Html
+            }
+
+            Label {
+                text: qsTr("Support") + Retranslate.onLocaleOrLanguageChanged
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                }
+            }
+            Label {
+                multiline: true
+                text: About.support + Retranslate.onLocaleOrLanguageChanged
+                textFormat: TextFormat.Html
+            }
+
+            Label {
+                text: qsTr("License") + Retranslate.onLocaleOrLanguageChanged
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                }
+            }
+            Label {
+                multiline: true
+                text: About.license
                 textFormat: TextFormat.Html
             }
         }

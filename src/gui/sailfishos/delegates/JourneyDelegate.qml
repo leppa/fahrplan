@@ -25,7 +25,7 @@ Item {
     id: root
     property ListView listView: ListView.view
     width: listView.width
-    height: contentItem.height + Theme.paddingMedium
+    height: contentItem.height + Theme.paddingLarge
 
     signal clicked()
 
@@ -84,6 +84,7 @@ Item {
                 visible: model.miscInfo !== ""
                 text: model.miscInfo
                 width: parent.width
+                wrapMode: Text.WordWrap
                 font.bold: true
             }
 

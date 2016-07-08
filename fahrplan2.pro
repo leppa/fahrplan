@@ -1,13 +1,15 @@
-VERSION = 2.0.19
+# Define Version
+VERSION = 2.0.27
+
+# Switch for jolla to separate harbour and openrepo version
+openrepos {
+    DEFINES += BUILD_FOR_OPENREPOS
+}
 
 MOC_DIR = tmp
 UI_DIR = tmp
 OBJECTS_DIR = tmp
 RCC_DIR = tmp
-
-
-
-
 
 # Make the Version available in the C++ source too
 # Also setting QSettings Vendor name
@@ -39,12 +41,12 @@ exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):!contains(MEEGO_EDITION,harmat
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
-
-contains(QT_VERSION, ^5\\..\\..*) {
-  QT += quick qml xmlpatterns network xml concurrent
-  DEFINES += BUILD_FOR_QT5
+QT += network xml
+lessThan(QT_MAJOR_VERSION, 5) {
+    QT += declarative script
 } else {
-  QT += declarative xmlpatterns network xml script
+    QT += quick qml concurrent
+    DEFINES += BUILD_FOR_QT5
 }
 
 blackberry: QT += opengl
@@ -58,10 +60,20 @@ blackberry: CONFIG += cascades
 TRANSLATIONS += \
     translations/fahrplan_ar.ts \
     translations/fahrplan_de.ts \
+    translations/fahrplan_el.ts \
     translations/fahrplan_en.ts \
+    translations/fahrplan_fa_IR.ts \
+    translations/fahrplan_mk_MK.ts \
+    translations/fahrplan_nl_NL.ts \
+    translations/fahrplan_pl.ts \
     translations/fahrplan_ro_RO.ts \
     translations/fahrplan_ru.ts \
-    translations/fahrplan_uk.ts
+    translations/fahrplan_sl_SI.ts \
+    translations/fahrplan_sv_SE.ts \
+    translations/fahrplan_tr.ts \
+    translations/fahrplan_uk.ts \
+    translations/fahrplan_zh.ts
+CODECFORTR = UTF-8
 
 OTHER_FILES += \
     data/fahrplan2.svg \
@@ -75,7 +87,7 @@ RESOURCES += \
 
 INCLUDEPATH += src
 # Zlib todo for other systems ugly hack
-!unix: INCLUDEPATH += C:/QtSDK/Nokia/QtSources/4.8.1/src/3rdparty/zlib C:/QtSDK/QtSources/4.8.1/src/3rdparty/zlib G:/SDK/QTMobile/QtSources/4.8.1/src/3rdparty/zlib
+!unix: INCLUDEPATH += f:/QtSdk/Qt5.4.0/5.4/mingw491_32/include/QtZlib
 unix:!symbian: LIBS += -lz
 
 HEADERS += \
@@ -101,13 +113,16 @@ HEADERS += \
     src/models/trainrestrictions.h \
     src/parser/parser_ptvvicgovau.h \
     src/parser/parser_efa.h \
-    src/parser/parser_london_efa.h \
     src/parser/parser_ireland_efa.h \
     src/parser/parser_sydney_efa.h \
     src/parser/parser_sf_bay_efa.h \
     src/parser/parser_dubai_efa.h \
-    src/parser/parser_ninetwo.h
-
+    src/parser/parser_ninetwo.h \
+    src/parser/parser_munich_efa.h \
+    src/parser/parser_salzburg_efa.h \
+    src/parser/parser_resrobot.h \
+    src/parser/parser_finland_matka.h \
+    src/models/backends.h
 SOURCES += src/main.cpp \
     src/parser/parser_hafasxml.cpp \
     src/parser/parser_abstract.cpp \
@@ -131,12 +146,18 @@ SOURCES += src/main.cpp \
     src/models/trainrestrictions.cpp \
     src/parser/parser_ptvvicgovau.cpp \
     src/parser/parser_efa.cpp \
-    src/parser/parser_london_efa.cpp \
     src/parser/parser_ireland_efa.cpp \
     src/parser/parser_sydney_efa.cpp \
     src/parser/parser_sf_bay_efa.cpp \
     src/parser/parser_dubai_efa.cpp \
-    src/parser/parser_ninetwo.cpp
+    src/parser/parser_ninetwo.cpp \
+    src/parser/parser_munich_efa.cpp \
+    src/parser/parser_salzburg_efa.cpp \
+    src/parser/parser_resrobot.cpp \
+    src/parser/parser_finland_matka.cpp \
+    src/models/backends.cpp
+
+LIBS += $$PWD/3rdparty/gauss-kruger-cpp/gausskruger.cpp
 
 # This hack is needed for lupdate to pick up texts from QML files
 translate_hack {
@@ -157,7 +178,8 @@ translate_hack {
         src/gui/sailfishos/*.qml  \
         src/gui/sailfishos/components/*.qml \
         src/gui/sailfishos/delegates/*.qml \
-        src/gui/sailfishos/pages/*.qml
+        src/gui/sailfishos/pages/*.qml \
+        src/gui/about.js
 }
 
 contains(MEEGO_EDITION,harmattan) {
@@ -208,10 +230,10 @@ ubuntu: {
         src/gui/ubuntu/JourneyDetailsResultsPage.qml \
         src/gui/ubuntu/TimeTableResultsPage.qml \
         src/gui/ubuntu/main.qml \
-        src/gui/ubuntu/components/Scroller.qml \
         src/gui/ubuntu/components/StationSelect.qml \
         src/gui/ubuntu/components/DatePicker.qml \
         src/gui/ubuntu/components/TimePicker.qml \
+        src/gui/ubuntu/components/CustomListItem.qml \
         src/gui/ubuntu/AboutPage.qml \
         src/gui/ubuntu/SettingsPage.qml \
         data/fahrplan2_ubuntu.desktop \
@@ -254,7 +276,6 @@ blackberry {
     RESOURCES += blackberry_res.qrc
 
     HEADERS += \
-        src/bb10completion.h \
         src/bb10/languagechangelistener.h \
         src/bb10/repeater.h \
         src/blackberrypositionsource.h
@@ -285,6 +306,12 @@ exists("/usr/include/sailfishapp/sailfishapp.h"): {
     PKGCONFIG += sailfishapp
     INCLUDEPATH += /usr/include/sailfishapp
 
+    # we need additional stuff for calendar support
+    openrepos {
+        PKGCONFIG += libmkcal-qt5 libkcalcoren-qt5
+        INCLUDEPATH += /usr/include/mkcal-qt5 /usr/include/kcalcoren-qt5
+    }
+
     RESOURCES += sailfishos_res.qrc
 
     OTHER_FILES += \
@@ -296,6 +323,8 @@ exists("/usr/include/sailfishapp/sailfishapp.h"): {
         src/gui/sailfishos/delegates/StationDelegate.qml \
         src/gui/sailfishos/delegates/JourneyDelegate.qml \
         src/gui/sailfishos/delegates/JourneyDetailsDelegate.qml \
+        src/gui/sailfishos/delegates/JourneyDetailsStationDelegate.qml \
+        src/gui/sailfishos/delegates/JourneyDetailsTrainDelegate.qml \
         src/gui/sailfishos/pages/JourneyResultsPage.qml \
         src/gui/sailfishos/delegates/TimetableEntryDelegate.qml \
         src/gui/sailfishos/pages/JourneyDetailsResultsPage.qml \
@@ -303,22 +332,26 @@ exists("/usr/include/sailfishapp/sailfishapp.h"): {
         src/gui/sailfishos/pages/AboutPage.qml \
         rpm/harbour-fahrplan2.yaml \
         data/sailfishos/harbour-fahrplan2.desktop \
+        data/sailfishos/openrepos/harbour-fahrplan2.desktop \
         data/sailfishos/harbour-fahrplan2.png
 }
 
 win32|unix:!simulator:!maemo5:!contains(MEEGO_EDITION,harmattan):!symbian {
-!exists("/usr/include/sailfishapp/sailfishapp.h"):!blackberry {
+!exists("/usr/include/sailfishapp/sailfishapp.h"):!ubuntu:!blackberry {
     QT += widgets
-
+    DEFINES += BUILD_FOR_DESKTOP
+    RESOURCES += desktop_res.qrc
     SOURCES += src/gui/desktop-test/mainwindow.cpp
     HEADERS += src/gui/desktop-test/mainwindow.h
     FORMS += src/gui/desktop-test/mainwindow.ui
-
-    DEFINES += BUILD_FOR_DESKTOP
 }} # Yes, two closing braces
 
 symbian|simulator {
     RESOURCES += symbian_res.qrc
+
+    # Symbian does not like gauss-kruger as lib so we add it as sources too
+    SOURCES += $$PWD/3rdparty/gauss-kruger-cpp/gausskruger.cpp
+    HEADERS += $$PWD/3rdparty/gauss-kruger-cpp/gausskruger.h
 
     OTHER_FILES += \
         src/gui/symbian/main.qml \
@@ -366,12 +399,16 @@ symbian|simulator {
         # Use this UID for development purposes.
         TARGET.UID3 = 0xE4182966
 
-        # Smart Installer package's UID
+        # Smart Installer package UID (protected range)
         # This UID is from the protected range and therefore the package will
-        # fail to install if self-signed. By default qmake uses the unprotected
-        # range value if unprotected UID is defined for the application and
-        # 0x2002CCCF value if protected UID is given to the application
-        DEPLOYMENT.installer_header = 0x2002CCCF
+        # fail to install if self-signed. If you want to create Smart Installer
+        # package for self-signed executable, use UID from the unprotected range.
+        # See http://doc.qt.digia.com/smart-installer-1.1/smartinstaller-uids.html
+        #DEPLOYMENT.installer_header = 0x2002CCCF
+
+        # Smart Installer package UID (unprotected range)
+        # See the description above.
+        DEPLOYMENT.installer_header = 0xA000D7CE
 
         QMAKE_TARGET_COMPANY = smurfy <maemo@smurfy.de>
         QMAKE_TARGET_PRODUCT = Fahrplan
@@ -425,4 +462,3 @@ freebsd-* {
 translations.CONFIG = no_link
 QMAKE_EXTRA_COMPILERS += translations
 PRE_TARGETDEPS += compiler_translations_make_all
-

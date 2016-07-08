@@ -34,10 +34,9 @@ Page {
 
         VerticalScrollDecorator {}
 
-        /*
         PushUpMenu {
             id: pushUpMenu
-            visible: indicator.visible === false
+            visible: (indicator.visible === false) && (fahrplanBackend.supportsCalendar)
 
             MenuItem {
                 id: addToCalendar
@@ -48,7 +47,7 @@ Page {
                     pushUpMenu.busy = true;
                 }
             }
-        }*/
+        }
 
         Column {
             id: column
@@ -71,7 +70,7 @@ Page {
                         left: parent.left
                         leftMargin: Theme.paddingMedium
                         top: parent.top
-                        topMargin: 80
+                        topMargin: Theme.paddingLarge * 3
                     }
                     width: ((parent.width / 3) * 2) - 20
                     wrapMode: Text.WordWrap
@@ -85,7 +84,7 @@ Page {
                         rightMargin: Theme.paddingMedium
                         left: lbljourneyDate.right
                         top: parent.top
-                        topMargin: 80
+                        topMargin: Theme.paddingLarge * 3
                     }
                     width: (parent.width / 3) - 20
                     horizontalAlignment: Text.AlignRight
@@ -128,7 +127,7 @@ Page {
                 indicator.visible = true;
                 journeyStations.title = qsTr("Searching...");
                 lbljourneyDate.text = "";
-                lbljourneyDuration = "";
+                lbljourneyDuration.text = "";
                 break;
         }
     }
@@ -151,6 +150,7 @@ Page {
             addToCalendar.enabled = true;
             pushUpMenu.busy = false;
             console.log("Calendar success");
+            console.log(success);
         }
 
         onParserJourneyDetailsResult: {
@@ -182,6 +182,17 @@ Page {
                         nextItem = result.getItem(i+1);
                     }
 
+                    /*
+                    console.log("-------------" + i);
+                    console.log(item.departureStation);
+                    console.log(item.train);
+                    console.log(item.arrivalStation);
+                    if (nextItem) {
+                        console.log(nextItem.departureStation);
+                        console.log(nextItem.train);
+                        console.log(nextItem.arrivalStation);
+                    }
+                    */
 
                     var isStart = (i == 0);
                     var isStop = (i == result.count -1);
@@ -204,9 +215,8 @@ Page {
                         });
                     }
 
-                    //Add arrival station, but only if its the last item or if the next departureStation differs
-                    //from arrival station
-                    if (isStop || (nextItem && nextItem.departureStation != item.arrivalStation)) {
+                    //Add arrival station
+                    if (isStop) {
                         journeyDetailResultModel.append({
                                                             "isStart" : false,
                                                             "isStop" : isStop,
@@ -224,12 +234,15 @@ Page {
                     }
 
                     //Add one Station
-                    if ((nextItem && nextItem.departureStation == item.arrivalStation)) {
-
+                    if (nextItem) {
                         var stationInfo = item.arrivalInfo;
+                        var stationName = item.arrivalStation;
 
                         if (stationInfo.length > 0 && nextItem.departureInfo) {
                             stationInfo = stationInfo + " / ";
+                        }
+                        if (nextItem.departureStation != item.arrivalStation) {
+                            stationName += " / " + nextItem.departureStation;
                         }
 
                         stationInfo = stationInfo + nextItem.departureInfo;
@@ -240,7 +253,7 @@ Page {
                                                             "trainName" :  nextItem.train,
                                                             "trainDirection" : nextItem.direction,
                                                             "trainInfo" : nextItem.info,
-                                                            "stationName" : item.arrivalStation,
+                                                            "stationName" : stationName,
                                                             "stationInfo" : stationInfo,
                                                             "arrivalTime" : Qt.formatTime(item.arrivalDateTime, "hh:mm"),
                                                             "departureTime" :  Qt.formatTime(nextItem.departureDateTime, "hh:mm"),
@@ -251,7 +264,6 @@ Page {
                     }
 
                 }
-
                 indicator.visible = false;
             } else {
                 pageStack.pop();

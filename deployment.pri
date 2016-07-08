@@ -103,20 +103,38 @@ symbian {
         installPrefix = /opt/$${TARGET}
         desktopfile.files = data/$${TARGET}_harmattan.desktop
         desktopfile.path = /usr/share/applications
-        icon.files = data/$${TARGET}.svg
-        icon.path = /usr/share/icons/hicolor/scalable/apps
+        icon.files = data/$${TARGET}_80.png
+        icon.path = /usr/share/icons/hicolor/80x80/apps
         splash.files = data/splash.jpg
         splash.path = $${installPrefix}/data
         export(splash.files)
         export(splash.path)
         INSTALLS += splash
     } else:ubuntu {
+        installPrefix = /
         desktopfile.files = data/$${TARGET}_ubuntu.desktop
-        desktopfile.path = /usr/share/applications
+        desktopfile.path = /
         icon.files = data/$${TARGET}-square.svg
-        icon.path = /usr/share/icons/hicolor/scalable/apps
+        icon.path = /
+        # The following line is required for the Ubuntu SDK to generate a run config
+        UBUNTU_MANIFEST_FILE = $$PWD/qtc_packaging/ubuntu/manifest.json
+        export(UBUNTU_MANIFEST_FILE)
+        manifestfile.files = $${UBUNTU_MANIFEST_FILE}
+        manifestfile.CONFIG += no_check_exist
+        manifestfile.path = /
+        export(manifestfile.files)
+        export(manifestfile.path)
+        apparmor.files = qtc_packaging/ubuntu/fahrplan2.json
+        apparmor.path = /
+        export(apparmor.files)
+        export(apparmor.path)
+        INSTALLS += manifestfile apparmor
     } else:exists("/usr/include/sailfishapp/sailfishapp.h") {
         desktopfile.files = data/sailfishos/$${TARGET}.desktop
+        # Use different desktop file for openrepos
+        openrepos {
+            desktopfile.files = data/sailfishos/openrepos/$${TARGET}.desktop
+        }
         desktopfile.path = /usr/share/applications
         icon.files = data/sailfishos/$${TARGET}.png
         icon.path = /usr/share/icons/hicolor/86x86/apps

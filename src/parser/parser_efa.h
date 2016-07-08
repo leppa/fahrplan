@@ -22,7 +22,6 @@
 
 #include <QDomDocument>
 #include <QObject>
-#include <QXmlResultItems>
 #include "parser_abstract.h"
 
 class ParserEFA : public ParserAbstract
@@ -31,7 +30,9 @@ class ParserEFA : public ParserAbstract
 public:
     explicit ParserEFA(QObject *parent = 0);
     static QString getName() { return "EFA"; }
-    QString name() { return "EFA"; }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return getName(); }
+
 public slots:
     void findStationsByName(const QString &stationName);
     void findStationsByCoordinates(qreal longitude, qreal latitude);
@@ -53,11 +54,11 @@ protected:
     void parseSearchJourney(QNetworkReply *networkReply);
     void parseStationsByCoordinates(QNetworkReply *networkReply);
     void parseTimeTable(QNetworkReply *networkReply);
-
+    QDateTime parseItdDateTime(const QDomElement &element);
+    QByteArray readNetworkReply(QNetworkReply *networkReply);
 
 private:
     JourneyResultList *lastJourneyResultList;
-    JourneyDetailResultList *parseDetails(JourneyResultItem *journeyitem);
 
     struct {
         bool isValid;

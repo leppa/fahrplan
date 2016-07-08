@@ -19,12 +19,9 @@
 
 .pragma library
 
-var aboutText = "<p>This or prior versions uses code contribution by:<br /><i>gri</i>, <i>lorenzph</i>, <i>CaCO3</i>, <i>hcm</i>, <i>thp</i>, <i>qwerty12</i>, <i>qbast</i>, <i>Thomas Fischer</i>, <i>Oleksii Serdiuk</i>, <i>NightShift79</i>, <i>pirast</i>, <i>mzanetti</i>, <i>shentok</i>, <i>evansebire</i>, <i>unsanded</i>, <i>Morpog</i>.</p>" +
-        "<p>Fahrplan contains the following contributed translations: German by <i>smurfy</i> and <i>Florian Wittmann</i>, Ukrainian and Russian by <i>Oleksii Serdiuk</i>, Romanian by <i>LaurB (laurbb)</i>.<br /><a href=\"https://www.transifex.com/projects/p/fahrplan/\">Translate to your language</a></p>" +
-        "<p>If you like fahrplan, i would appreciate a donation.<br /><a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=DW3LGJ6VEKFVS\">Donate using PayPal</a></p>" +
-        "<p>If you encounter bugs or have feature requests visit the <br /><a href=\"https://github.com/smurfy/fahrplan/issues\">Fahrplan issue tracker on GitHub</a></p>" +
-        "<p><b>License</b></p>" +
-        "<p>This program is free software; you can redistribute it and/or " +
+var copyright = "(C) 2008-2016 smurfy (maemo@smurfy.de)";
+
+var license = "<p>This program is free software; you can redistribute it and/or " +
         "modify it under the terms of the GNU General Public License " +
         "as published by the Free Software Foundation; either version 2 " +
         "of the License, or (at your option) any later version.</p> " +
@@ -34,3 +31,25 @@ var aboutText = "<p>This or prior versions uses code contribution by:<br /><i>gr
         "GNU General Public License for more details.</p> " +
         "<p>You should have received a copy of the GNU General Public License " +
         "along with this program. If not, see &lt;<a href=\"http://www.gnu.org/licenses/\">http://www.gnu.org/licenses/</a>&gt;.</p>";
+
+var support = qsTr("<p>If fahrplan is not translated in your language, help us <a href=\"%1\">translate it to your language</a>.</p> " +
+        "<p>If you like fahrplan, I would appreciate a donation. <a href=\"%2\">Donate using PayPal</a></p> " +
+        "<p>If you encounter bugs or have feature requests visit the <a href=\"%3\">Fahrplan issue tracker on GitHub</a>.</p>")
+        .arg("https://www.transifex.com/projects/p/fahrplan/")
+        .arg("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=DW3LGJ6VEKFVS")
+        .arg("https://github.com/smurfy/fahrplan/issues");
+
+var maintainers = ["Philipp Andreas (smurfy)", "Michael Zanetti (mzanetti)", "Oleksii Serdiuk (leppa)"];
+var codeContributors = ["gri", "lorenzph", "CaCO3", "hcm", "thp", "qwerty12", "qbast", "Thomas Fischer", "Oleksii Serdiuk (leppa)", "Nekhelesh Ramananthan (nik90)", "NightShift79", "pirast", "Michael Zanetti (mzanetti)", "shentok", "evansebire", "unsanded", "Morpog", "benni0815", "Erik Lundin"].sort();
+var translators = [
+            "German - Philipp Andreas (smurfy), Florian Wittmann, DeadHorseRiding (Mee_Germany_Go)",
+            "Ukrainian - Oleksii Serdiuk (leppa)",
+            "Russian - Oleksii Serdiuk (leppa), Alexey (lewa)",
+            "Romanian - LaurB (laurbb)",
+            "Dutch - Heimen Stoffels (Vistaus), Nathan Follens (pljmn)",
+            "Persian - Ali Adineh (ali6007205)",
+            "Polish - maurycy",
+            "Swedish - Erik Lundin",
+            "Slovenian - Boštjan Štrumbelj (sponka), Matija Šuklje (hook)",
+            "Greek - Wasilis Mandratzis-Walz (beonex)"
+        ];

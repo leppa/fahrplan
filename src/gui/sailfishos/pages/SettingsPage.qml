@@ -40,8 +40,8 @@ Page {
                 title: qsTr("Settings")
             }
 
-            /*
             TextSwitch {
+                visible: fahrplanBackend.supportsCalendar
                 text: qsTr("Compact calendar entries")
                 description: qsTr("Use shorter text format in the calendar event description")
                 onCheckedChanged: {
@@ -50,7 +50,25 @@ Page {
                 Component.onCompleted: {
                     checked = fahrplanBackend.getSettingsValue("compactCalendarEntries", false) === "true" ? true : false;
                 }
-            }*/
+            }
+
+            ComboBox {
+                visible: fahrplanBackend.supportsCalendar
+                label: qsTr("Add journeys to calendar")
+                value: calendarManager.selectedCalendarName
+                menu: ContextMenu {
+                      Repeater {
+                           model: calendarManager
+                           MenuItem {
+                               text: model.name
+                           }
+                      }
+                }
+                onCurrentIndexChanged: {
+                    calendarManager.selectedIndex = currentIndex;
+                }
+
+            }
 
             ComboBox {
                 id: currentBackend
@@ -58,29 +76,17 @@ Page {
                 value: fahrplanBackend.parserName
                 menu: ContextMenu {
                       Repeater {
-                           model: parserBackendModel
+                           model: fahrplanBackend.backends
                            MenuItem {
                                text: model.name
                            }
                       }
                       Component.onCompleted: {
-                          var items;
-                          var i;
-
-                          if (parserBackendModel.count == 0) {
-                              items = fahrplanBackend.getParserList();
-                              for (i = 0; i < items.length; i++) {
-                                  parserBackendModel.append({
-                                      "name" : items[i]
-                                  });
-                              }
-                          }
-
-                          currentBackend.currentIndex = fahrplanBackend.getSettingsValue("currentBackend", 0);
+                          currentBackend.currentIndex = fahrplanBackend.backends.getItemIndexForParserId(fahrplanBackend.getSettingsValue("currentBackend", 0));
                       }
                 }
                 onCurrentIndexChanged: {
-                    fahrplanBackend.setParser(currentIndex)
+                    fahrplanBackend.setParser(fahrplanBackend.backends.getParserIdForItemIndex(currentIndex))
                 }
 
             }
@@ -95,8 +101,12 @@ Page {
         }
     }
 
-    ListModel {
-        id: parserBackendModel
+    CalendarManager {
+        id: calendarManager
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Activating)
+            calendarManager.reload();
+    }
 }

@@ -17,49 +17,43 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
-import Ubuntu.Components 0.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 import Fahrplan 1.0
 
 MainView {
     id: appWindow
-    width: units.gu(40)
-    height: units.gu(71)
+
+    width: units.gu(40); height: units.gu(71)
+    anchorToKeyboard: true
 
     FahrplanBackend {
         id: fahrplanBackend
     }
 
-    useDeprecatedToolbar: false
-    Tabs {
-        onCurrentPageChanged: {
-            while (journeyPageStack.depth > 1) {
-                journeyPageStack.pop()
-            }
-            while (timeTablePageStack.depth > 1) {
-                timeTablePageStack.pop()
-            }
-        }
+    PageStack {
+        id: mainStack
 
-        Tab {
-            title: qsTr("Journey")
-            page: PageStack {
-                id: journeyPageStack
-                Component.onCompleted: push(journeyPage)
-                MainPage {
+        Component.onCompleted: push(tabs)
+
+        Tabs {
+            id: tabs
+
+            // Ensure that the last used tab is restored when the app gets killed
+            // and brought by the system.
+            StateSaver.properties: "selectedTabIndex"
+
+            Tab {
+                title: qsTr("Journey")
+                page: MainPage {
                     title: qsTr("Journey")
-                    id: journeyPage
                 }
             }
-        }
-        Tab {
-            title: qsTr("Time table")
-            page: PageStack {
-                id: timeTablePageStack
-                Component.onCompleted: push(timeTablePage)
-                MainPage {
+
+            Tab {
+                title: qsTr("Time table")
+                page: MainPage {
                     title: qsTr("Time table")
-                    id: timeTablePage
                     searchmode: 1
                 }
             }

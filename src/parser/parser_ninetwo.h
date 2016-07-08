@@ -44,6 +44,12 @@ class ParserNinetwo : public ParserAbstract
 
     } lastsearch;
 
+    struct {
+        bool isValid;
+        qreal latitude;
+        qreal longitude;
+    } lastCoordinates;
+
     typedef enum restrictions{
         all=0,
         trainsOnly=1,
@@ -57,8 +63,10 @@ public:
 
     // ParserAbstract interface
 public:
-    QString name(){return "9292ov.nl";}
-    static QString getName() { return "9292ov.nl"; }
+    static QString getName() { return QString("%1 / %2 (9292ov.nl)").arg(tr("Netherlands"), tr("Belgium")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "9292ov.nl"; }
+
 public slots:
     void getTimeTableForStation(const Station &currentStation, const Station &directionStation, const QDateTime &dateTtime, ParserAbstract::Mode mode, int trainrestrictions);
     void findStationsByName(const QString &stationName);
@@ -84,7 +92,6 @@ protected:
     QMap<QString, JourneyDetailResultList*> cachedResults;
 
 private:
-    QVariantMap parseJson(const QByteArray &data) const;
     void parseJourneyOption(const QVariantMap &object);
 };
 

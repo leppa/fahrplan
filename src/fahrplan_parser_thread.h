@@ -33,10 +33,13 @@
 #include "parser/parser_ptvvicgovau.h"
 #include "parser/parser_sf_bay_efa.h"
 #include "parser/parser_sydney_efa.h"
-#include "parser/parser_london_efa.h"
 #include "parser/parser_ireland_efa.h"
 #include "parser/parser_dubai_efa.h"
 #include "parser/parser_ninetwo.h"
+#include "parser/parser_munich_efa.h"
+#include "parser/parser_salzburg_efa.h"
+#include "parser/parser_resrobot.h"
+#include "parser/parser_finland_matka.h"
 
 class FahrplanParserThread : public QThread
 {
@@ -79,6 +82,7 @@ public slots:
     bool supportsTimeTable();
     bool supportsTimeTableDirection();
     QString name();
+    QString shortName();
     QString uid() const;
     QStringList getTrainRestrictions();
 
@@ -95,6 +99,7 @@ private:
   bool m_supports_timetable;
   bool m_supports_timetabledirection;
   QString m_name;
+  QString m_short_name;
   QString m_uid;
 };
 

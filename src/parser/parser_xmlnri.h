@@ -28,8 +28,9 @@ class ParserXmlNri : public ParserHafasXml
 
 public:
     explicit ParserXmlNri(QObject *parent = 0);
-    static QString getName() { return "reiseinfo.no / nri"; }
-    QString name() { return "reiseinfo.no / nri"; }
+    static QString getName() { return QString("%1 (reiseinfo.no / nri)").arg(tr("Norway")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "reiseinfo.no"; }
 
 protected:
     QStringList getTrainRestrictions();

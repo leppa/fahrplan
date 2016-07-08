@@ -21,7 +21,6 @@
 #define PARSER_SYDNEY_EFA_H
 
 #include <QObject>
-#include <QXmlResultItems>
 #include "parser_efa.h"
 
 class ParserSydneyEFA : public ParserEFA
@@ -29,8 +28,9 @@ class ParserSydneyEFA : public ParserEFA
     Q_OBJECT
 public:
     explicit ParserSydneyEFA(QObject *parent = 0);
-    static QString getName() { return "Sydney"; }
-    QString name() { return "Sydney"; }
+    static QString getName() { return QString("%1, %2 (transportnsw.info)").arg(tr("Australia"), tr("Sydney")); }
+    virtual QString name() { return getName(); }
+    virtual QString shortName() { return "transportnsw.info"; }
 
 protected:
     QStringList getTrainRestrictions();

@@ -25,6 +25,7 @@
 #include "models/stationsearchresults.h"
 #include "models/timetable.h"
 #include "models/trainrestrictions.h"
+#include "models/backends.h"
 
 #include <QThread>
 
@@ -33,6 +34,7 @@ StationSearchResults *Fahrplan::m_stationSearchResults= NULL;
 Favorites *Fahrplan::m_favorites = NULL;
 Timetable *Fahrplan::m_timetable = NULL;
 Trainrestrictions *Fahrplan::m_trainrestrictions = NULL;
+Backends *Fahrplan::m_backends = NULL;
 
 Fahrplan::Fahrplan(QObject *parent)
     : QObject(parent)
@@ -70,6 +72,11 @@ Fahrplan::Fahrplan(QObject *parent)
 
     if (!m_trainrestrictions) {
         m_trainrestrictions = new Trainrestrictions(this);
+    }
+
+    if (!m_backends) {
+        m_backends = new Backends(this);
+        m_backends->setBackendParserList(m_parser_manager->getParserList());
     }
 }
 
@@ -109,6 +116,15 @@ QString Fahrplan::getVersion()
     return FAHRPLAN_VERSION;
 }
 
+bool Fahrplan::supportsCalendar()
+{
+#if defined(BUILD_FOR_BLACKBERRY) || defined(BUILD_FOR_HARMATTAN) || defined(BUILD_FOR_MAEMO_5) || defined(BUILD_FOR_SYMBIAN) || (defined(BUILD_FOR_OPENREPOS) && defined(BUILD_FOR_SAILFISHOS))
+    return true;
+#else
+    return false;
+#endif
+}
+
 StationSearchResults *Fahrplan::stationSearchResults() const
 {
     return m_stationSearchResults;
@@ -117,6 +133,12 @@ StationSearchResults *Fahrplan::stationSearchResults() const
 Timetable *Fahrplan::timetable() const
 {
     return m_timetable;
+}
+
+
+Backends *Fahrplan::backends() const
+{
+    return m_backends;
 }
 
 Trainrestrictions *Fahrplan::trainrestrictions() const
@@ -294,6 +316,10 @@ void Fahrplan::setTrainrestriction(int index)
         m_trainrestriction = 0;
     }
     emit trainrestrictionChanged();
+
+    settings->beginGroup(m_parser_manager->getParser()->uid());
+    settings->setValue("trainRestrictions", index);
+    settings->endGroup(); // Parser UID
 }
 
 QString Fahrplan::trainrestrictionName() const
@@ -313,7 +339,16 @@ void Fahrplan::onParserChanged(const QString &name, int index)
     if (m_trainrestrictions) {
         QStringList list = parser()->getTrainRestrictions();
         m_trainrestrictions->setStringList(list);
-        setTrainrestriction(0);
+
+        settings->beginGroup(m_parser_manager->getParser()->uid());
+        int trainRestrictions = settings->value("trainRestrictions", 0).toInt();
+        settings->endGroup(); // Parser UID
+
+        if (trainRestrictions < list.count()) {
+            setTrainrestriction(trainRestrictions);
+        } else {
+            setTrainrestriction(0);
+        }
     }
 
     emit parserChanged(name, index);
@@ -333,23 +368,24 @@ void Fahrplan::onTimetableResult(const TimetableEntriesList &timetableEntries)
     emit parserTimeTableResult();
 }
 
-QString Fahrplan::parserName() const
-{
-    return m_parser_manager->getParser()->name();
-}
-
-QStringList Fahrplan::getParserList()
-{
-    return m_parser_manager->getParserList();
-}
-
 int Fahrplan::parserIndex() const
 {
     return m_parser_manager->parser();
 }
 
+QString Fahrplan::parserName() const
+{
+    return m_parser_manager->getParser()->name();
+}
+
+QString Fahrplan::parserShortName() const
+{
+    return m_parser_manager->getParser()->shortName();
+}
+
 void Fahrplan::setParser(int index)
 {
+    qDebug()<<"Set parser:"<<index;
     settings->setValue("currentBackend", index);
     m_parser_manager->setParser(index);
 }
@@ -389,11 +425,11 @@ Station Fahrplan::getStation(StationType type) const
 
 void Fahrplan::loadStations()
 {
-    setStation(DepartureStation, loadStationFromSettigns("departureStation"));
-    setStation(ViaStation, loadStationFromSettigns("viaStation"));
-    setStation(ArrivalStation, loadStationFromSettigns("arrivalStation"));
-    setStation(CurrentStation, loadStationFromSettigns("currentStation"));
-    setStation(DirectionStation, loadStationFromSettigns("directionStation"));
+    setStation(DepartureStation, loadStationFromSettings("departureStation"));
+    setStation(ViaStation, loadStationFromSettings("viaStation"));
+    setStation(ArrivalStation, loadStationFromSettings("arrivalStation"));
+    setStation(CurrentStation, loadStationFromSettings("currentStation"));
+    setStation(DirectionStation, loadStationFromSettings("directionStation"));
 }
 
 void Fahrplan::saveStationToSettings(const QString &key, const Station &station)
@@ -409,12 +445,16 @@ void Fahrplan::saveStationToSettings(const QString &key, const Station &station)
     settings->beginGroup(key);
     settings->setValue("id", station.id);
     settings->setValue("name", station.name);
+    settings->setValue("type", station.type);
+    settings->setValue("miscInfo", station.miscInfo);
+    settings->setValue("latitude", station.latitude);
+    settings->setValue("longitude", station.longitude);
     settings->endGroup(); // key
 
     settings->endGroup(); // Parser UID
 }
 
-Station Fahrplan::loadStationFromSettigns(const QString &key)
+Station Fahrplan::loadStationFromSettings(const QString &key)
 {
     Station station(false);
 
@@ -426,6 +466,10 @@ Station Fahrplan::loadStationFromSettigns(const QString &key)
         station.name = settings->value("name").toString();
         if (!station.name.isEmpty())
             station.valid = true;
+        station.type = settings->value("type").toString();
+        station.miscInfo = settings->value("miscInfo").toString();
+        station.latitude = settings->value("latitude").toFloat();
+        station.longitude = settings->value("longitude").toFloat();
     }
 
     settings->endGroup(); // key

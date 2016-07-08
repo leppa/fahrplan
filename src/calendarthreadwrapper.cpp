@@ -32,16 +32,24 @@ using namespace bb::pim::calendar;
 #   include <QOrganizerManager>
 #   include <QOrganizerEvent>
 QTM_USE_NAMESPACE
+#elif defined(BUILD_FOR_SAILFISHOS) && defined(BUILD_FOR_OPENREPOS)
+#   include <extendedcalendar.h>
+#   include <extendedstorage.h>
+#   include <kdatetime.h>
+#   include <ksystemtimezone.h>
 #endif
 
 QString formatStation(const QDateTime dateTime, const QString &stationName, const QString &info = QString())
 {
     QString station;
-    if (info.isEmpty())
+    if (info.isEmpty()) {
         station = stationName;
-    else
+    } else {
+        //: STATION / PLATFORM
         station = CalendarThreadWrapper::tr("%1 / %2", "STATION / PLATFORM").arg(stationName, info);
+    }
 
+    //: DATE TIME   STATION
     return CalendarThreadWrapper::tr("%1 %2   %3", "DATE TIME   STATION").arg(
                // TODO: Don't force QLocale::ShortFormat for date, but make it configurable.
                dateTime.toString(QLocale().dateFormat(QLocale::ShortFormat)),
@@ -62,6 +70,7 @@ CalendarThreadWrapper::~CalendarThreadWrapper()
 
 void CalendarThreadWrapper::addToCalendar()
 {
+
     const QString viaStation = m_result->viaStation();
     QSettings settings(FAHRPLAN_SETTINGS_NAMESPACE, "fahrplan2");
     QString calendarEntryTitle;
@@ -155,6 +164,33 @@ void CalendarThreadWrapper::addToCalendar()
     }
 
     emit addCalendarEntryComplete(defaultManager.saveItem(&event));
+  #elif defined(BUILD_FOR_SAILFISHOS) && defined(BUILD_FOR_OPENREPOS)
+
+    mKCal::ExtendedCalendar::Ptr calendar = mKCal::ExtendedCalendar::Ptr ( new mKCal::ExtendedCalendar( QLatin1String( "UTC" ) ) );
+    mKCal::ExtendedStorage::Ptr storage = mKCal::ExtendedCalendar::defaultStorage( calendar );
+    if (storage->open()) {
+        QString uid = settings.value("Calendar/notebookUID").toString();
+        mKCal::Notebook::Ptr notebook = storage->notebook(uid);
+
+        if (!notebook) {
+            notebook = storage->defaultNotebook();
+        }
+
+        if (notebook) {
+            KCalCore::Event::Ptr event = KCalCore::Event::Ptr( new KCalCore::Event() );
+            event->setSummary(calendarEntryTitle);
+            event->setDescription(calendarEntryDesc);
+            event->setDtStart( KDateTime(m_result->departureDateTime()) );
+            event->setDtEnd( KDateTime(m_result->arrivalDateTime()) );
+            calendar->addEvent( event, notebook->uid() );
+            storage->save();
+            emit addCalendarEntryComplete(true);
+        } else {
+            emit addCalendarEntryComplete(false);
+        }
+    } else {
+        emit addCalendarEntryComplete(false);
+    }
 #else
     emit addCalendarEntryComplete(false);
 #endif

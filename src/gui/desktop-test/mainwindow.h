@@ -29,6 +29,7 @@
 #include "../../models/stationsearchresults.h"
 #include "../../models/timetable.h"
 #include "../../models/trainrestrictions.h"
+#include "../../models/backends.h"
 
 namespace Ui {
     class MainWindow;
@@ -56,6 +57,7 @@ private slots:
     void parserCurrentIndexChanged(int index);
     void cancelRequestClicked();
     void getJourneyDetailsClicked();
+    void selectStationClicked();
     void errorOccured(const QString &msg);
     void parserChanged(const QString &name, int index);
 
