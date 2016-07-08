@@ -40,8 +40,9 @@
 #   include <bb/cascades/Application>
 #   include <bb/cascades/QmlDocument>
 #   include <bb/cascades/AbstractPane>
+#   include <bb/cascades/Container>
+#   include <bb/cascades/SceneCover>
 #   include <bb/system/SystemToast>
-#   include <bb/platform/PlatformInfo>
 using namespace bb::cascades;
 #else
     #include "gui/desktop-test/mainwindow.h"

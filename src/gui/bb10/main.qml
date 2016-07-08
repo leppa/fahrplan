@@ -62,7 +62,7 @@ NavigationPane {
         SystemToast {
             id: toast
 
-            position: SystemUiPosition.TopCenter
+//            position: SystemUiPosition.TopCenter
         }
     ]
 
